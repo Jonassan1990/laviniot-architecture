@@ -3,17 +3,16 @@ import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import Heading from "@theme/Heading";
-import clsx from "clsx";
 import styles from "./index.module.css";
 
-type SectionProps = {
+type SectionItem = {
   number: string;
   title: string;
   description: string;
   href: string;
 };
 
-const sections: SectionProps[] = [
+const sections: SectionItem[] = [
   {
     number: "00",
     title: "Vision",
@@ -82,7 +81,35 @@ const sections: SectionProps[] = [
   },
 ];
 
-function SectionCard({ number, title, description, href }: SectionProps) {
+const rules = [
+  {
+    number: "01",
+    title: "Architecture before implementation.",
+    body: "No module is built without a documented interface and an accepted ADR.",
+  },
+  {
+    number: "02",
+    title: "Decisions are recorded, not remembered.",
+    body: "If it is not in an ADR or the Sprint Journal, it did not happen.",
+  },
+  {
+    number: "03",
+    title: "This book is maintained with the same discipline as production code.",
+    body: "Outdated documentation is treated as a defect.",
+  },
+  {
+    number: "04",
+    title: "No business logic lives here.",
+    body: "This book governs the platform — it does not implement it.",
+  },
+  {
+    number: "05",
+    title: "ADRs are immutable after acceptance.",
+    body: "Reversals create a new ADR that supersedes the original.",
+  },
+];
+
+function SectionCard({ number, title, description, href }: SectionItem) {
   return (
     <Link to={href} className={styles.card}>
       <span className={styles.cardNumber}>{number}</span>
@@ -90,6 +117,7 @@ function SectionCard({ number, title, description, href }: SectionProps) {
         <Heading as="h3" className={styles.cardTitle}>{title}</Heading>
         <p className={styles.cardDescription}>{description}</p>
       </div>
+      <span className={styles.cardArrow} aria-hidden="true">→</span>
     </Link>
   );
 }
@@ -98,39 +126,83 @@ const HomePage: FC = () => {
   const { siteConfig } = useDocusaurusContext();
 
   return (
-    <Layout title="Lavin Book" description={siteConfig.tagline}>
-      <header className={clsx("hero hero--primary", styles.hero)}>
-        <div className="container">
-          <div className={styles.heroBadge}>Internal Engineering Handbook</div>
-          <Heading as="h1" className={styles.heroTitle}>
-            Lavin Book
-          </Heading>
-          <p className={styles.heroTagline}>{siteConfig.tagline}</p>
-          <div className={styles.heroBanner}>
-            📘 This is the official engineering handbook of LavinIoT.
+    <Layout title="Lavin Book — Engineering Handbook" description={siteConfig.tagline}>
+
+      {/* ── Hero ── */}
+      <header className={styles.hero}>
+        {/* Mesh background */}
+        <div className={styles.heroMesh} aria-hidden="true" />
+        {/* Glow orbs */}
+        <div className={styles.glowOrb1} aria-hidden="true" />
+        <div className={styles.glowOrb2} aria-hidden="true" />
+
+        <div className={styles.heroInner}>
+          {/* Badge */}
+          <div className={styles.badge}>
+            <span className={styles.badgeDot} aria-hidden="true" />
+            Internal Engineering Handbook
           </div>
-          <div className={styles.heroButtons}>
-            <Link className={clsx("button button--secondary button--lg", styles.heroBtn)} to="/vision">
-              Start with Vision →
+
+          {/* Title */}
+          <Heading as="h1" className={styles.heroTitle}>
+            Lavin<span className={styles.heroAccent}>Book</span>
+          </Heading>
+
+          {/* Tagline */}
+          <p className={styles.heroTagline}>{siteConfig.tagline}</p>
+
+          {/* Banner */}
+          <div className={styles.heroBanner}>
+            <span className={styles.heroBannerDot} aria-hidden="true">📘</span>
+            The official engineering handbook of LavinIoT. Not for external distribution.
+          </div>
+
+          {/* CTAs */}
+          <div className={styles.heroActions}>
+            <Link to="/vision" className={styles.btnPrimary}>
+              Start with Vision
+              <span aria-hidden="true"> →</span>
             </Link>
-            <Link className={clsx("button button--outline button--lg", styles.heroBtn)} to="/engineering-principles">
+            <Link to="/engineering-principles" className={styles.btnSecondary}>
               Engineering Principles
             </Link>
-            <Link className={clsx("button button--outline button--lg", styles.heroBtn)} to="/adr">
+            <Link to="/adr" className={styles.btnGhost}>
               ADR Log
             </Link>
+          </div>
+
+          {/* Quick stats */}
+          <div className={styles.heroStats}>
+            <div className={styles.heroStat}>
+              <span className={styles.heroStatValue}>11</span>
+              <span className={styles.heroStatLabel}>Sections</span>
+            </div>
+            <div className={styles.heroStatDivider} aria-hidden="true" />
+            <div className={styles.heroStat}>
+              <span className={styles.heroStatValue}>2</span>
+              <span className={styles.heroStatLabel}>ADRs accepted</span>
+            </div>
+            <div className={styles.heroStatDivider} aria-hidden="true" />
+            <div className={styles.heroStat}>
+              <span className={styles.heroStatValue}>9</span>
+              <span className={styles.heroStatLabel}>Engineering principles</span>
+            </div>
           </div>
         </div>
       </header>
 
       <main>
+        {/* ── Sections grid ── */}
         <section className={styles.sections}>
-          <div className="container">
-            <div className={styles.sectionsHeader}>
-              <Heading as="h2">Handbook sections</Heading>
-              <p>
-                Lavin Book is organised into 11 numbered sections. Every section serves a specific governance
-                function. Engineers read before they build. Architects write before they decide.
+          <div className={styles.container}>
+            <div className={styles.sectionHeader}>
+              <span className={styles.sectionLabel}>Handbook</span>
+              <Heading as="h2" className={styles.sectionTitle}>
+                Eleven sections. One source of truth.
+              </Heading>
+              <p className={styles.sectionSubtitle}>
+                Lavin Book is organised into 11 numbered sections. Every section serves a specific
+                governance function. Engineers read before they build. Architects write before they decide.
               </p>
             </div>
             <div className={styles.grid}>
@@ -141,41 +213,60 @@ const HomePage: FC = () => {
           </div>
         </section>
 
+        {/* ── Quick links ── */}
+        <section className={styles.quickLinks}>
+          <div className={styles.container}>
+            <div className={styles.quickLinksGrid}>
+              <Link to="/engineering-principles" className={styles.quickLink}>
+                <span className={styles.quickLinkIcon}>⚙</span>
+                <div>
+                  <strong>Engineering Principles</strong>
+                  <span>The values behind every decision</span>
+                </div>
+              </Link>
+              <Link to="/adr" className={styles.quickLink}>
+                <span className={styles.quickLinkIcon}>📋</span>
+                <div>
+                  <strong>ADR Log</strong>
+                  <span>Architecture decision records</span>
+                </div>
+              </Link>
+              <Link to="/core-architecture" className={styles.quickLink}>
+                <span className={styles.quickLinkIcon}>🏗</span>
+                <div>
+                  <strong>Core Architecture</strong>
+                  <span>Platform topology and invariants</span>
+                </div>
+              </Link>
+              <a href="https://www.lavin-iot.com" className={styles.quickLink} target="_blank" rel="noopener noreferrer">
+                <span className={styles.quickLinkIcon}>🌐</span>
+                <div>
+                  <strong>lavin-iot.com</strong>
+                  <span>Marketing website</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Rules ── */}
         <section className={styles.rulesSection}>
-          <div className="container">
+          <div className={styles.container}>
             <div className={styles.rulesInner}>
-              <Heading as="h2">The rules of this book</Heading>
+              <span className={styles.sectionLabel}>Governance</span>
+              <Heading as="h2" className={styles.rulesTitle}>
+                The rules of this book
+              </Heading>
               <div className={styles.rulesList}>
-                <div className={styles.rule}>
-                  <span className={styles.ruleNumber}>01</span>
-                  <div>
-                    <strong>Architecture before implementation.</strong> No module is built without a documented interface and an accepted ADR.
+                {rules.map((rule) => (
+                  <div key={rule.number} className={styles.rule}>
+                    <span className={styles.ruleNumber}>{rule.number}</span>
+                    <div className={styles.ruleBody}>
+                      <strong className={styles.ruleTitle}>{rule.title}</strong>
+                      <p className={styles.ruleText}>{rule.body}</p>
+                    </div>
                   </div>
-                </div>
-                <div className={styles.rule}>
-                  <span className={styles.ruleNumber}>02</span>
-                  <div>
-                    <strong>Decisions are recorded, not remembered.</strong> If it is not in an ADR or the Sprint Journal, it did not happen.
-                  </div>
-                </div>
-                <div className={styles.rule}>
-                  <span className={styles.ruleNumber}>03</span>
-                  <div>
-                    <strong>This book is maintained with the same discipline as production code.</strong> Outdated documentation is treated as a defect.
-                  </div>
-                </div>
-                <div className={styles.rule}>
-                  <span className={styles.ruleNumber}>04</span>
-                  <div>
-                    <strong>No business logic lives here.</strong> This book governs the platform — it does not implement it.
-                  </div>
-                </div>
-                <div className={styles.rule}>
-                  <span className={styles.ruleNumber}>05</span>
-                  <div>
-                    <strong>ADRs are immutable after acceptance.</strong> Reversals create a new ADR that supersedes the original.
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>

@@ -5,9 +5,9 @@ import type * as Preset from "@docusaurus/preset-classic";
 const config: Config = {
   title: "Lavin Book",
   tagline: "The engineering handbook of LavinIoT.",
-  favicon: "img/favicon.ico",
+  favicon: "img/logo-icon.svg",
 
-  url: "https://architecture.lavin-iot.com",
+  url: "https://book.lavin-iot.com",
   baseUrl: "/",
 
   organizationName: "Jonassan1990",
@@ -15,7 +15,6 @@ const config: Config = {
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  // Suppress deprecated config warning — migrate in Docusaurus v4
 
   i18n: {
     defaultLocale: "en",
@@ -27,6 +26,24 @@ const config: Config = {
   },
 
   themes: ["@docusaurus/theme-mermaid"],
+
+  headTags: [
+    {
+      tagName: "link",
+      attributes: {
+        rel: "preconnect",
+        href: "https://fonts.googleapis.com",
+      },
+    },
+    {
+      tagName: "link",
+      attributes: {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossorigin: "anonymous",
+      },
+    },
+  ],
 
   presets: [
     [
@@ -49,13 +66,21 @@ const config: Config = {
   themeConfig: {
     image: "img/laviniot-social.png",
 
+    metadata: [
+      { name: "theme-color", content: "#0b1d3a" },
+    ],
+
     navbar: {
       title: "Lavin Book",
       logo: {
         alt: "LavinIoT",
         src: "img/logo.svg",
         srcDark: "img/logo-dark.svg",
+        width: 32,
+        height: 32,
       },
+      style: "primary",
+      hideOnScroll: false,
       items: [
         {
           type: "docSidebar",
@@ -75,7 +100,7 @@ const config: Config = {
         },
         {
           href: "https://www.lavin-iot.com",
-          label: "lavin-iot.com",
+          label: "lavin-iot.com ↗",
           position: "right",
         },
         {
@@ -88,6 +113,13 @@ const config: Config = {
 
     footer: {
       style: "dark",
+      logo: {
+        alt: "LavinIoT",
+        src: "img/logo-dark.svg",
+        href: "https://www.lavin-iot.com",
+        width: 32,
+        height: 32,
+      },
       links: [
         {
           title: "Platform",
@@ -95,6 +127,7 @@ const config: Config = {
             { label: "00 Vision", to: "/vision" },
             { label: "01 Product", to: "/product" },
             { label: "02 Core Architecture", to: "/core-architecture" },
+            { label: "03 Module Catalog", to: "/module-catalog" },
           ],
         },
         {
@@ -103,6 +136,7 @@ const config: Config = {
             { label: "Engineering Principles", to: "/engineering-principles" },
             { label: "08 ADR", to: "/adr" },
             { label: "06 APIs & SDKs", to: "/apis-sdks" },
+            { label: "05 UX & Design System", to: "/ux-design-system" },
           ],
         },
         {
@@ -111,10 +145,18 @@ const config: Config = {
             { label: "09 Sprint Journal", to: "/sprint-journal" },
             { label: "10 Release Notes", to: "/release-notes" },
             { label: "07 Deployment", to: "/deployment" },
+            { label: "04 Data Model", to: "/data-model" },
+          ],
+        },
+        {
+          title: "LavinIoT",
+          items: [
+            { label: "Marketing site", href: "https://www.lavin-iot.com" },
+            { label: "GitHub", href: "https://github.com/Jonassan1990/laviniot-architecture" },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} LavinIoT. Lavin Book — internal engineering handbook.`,
+      copyright: `Copyright © ${new Date().getFullYear()} LavinIoT. Lavin Book is the official engineering handbook of LavinIoT. Not for external distribution.`,
     },
 
     prism: {
@@ -152,11 +194,11 @@ const config: Config = {
     },
 
     announcementBar: {
-      id: "lavin-book-v1",
+      id: "lavin-book-v1-brand",
       content:
-        "📘 <strong>Lavin Book</strong> — This is the official engineering handbook of LavinIoT. Not for external distribution.",
-      backgroundColor: "#0B6E4F",
-      textColor: "#ffffff",
+        "📘 <strong>Lavin Book</strong> — The official engineering handbook of LavinIoT. <a href='https://www.lavin-iot.com' style='color:#34d399;text-decoration:underline;' target='_blank' rel='noopener noreferrer'>lavin-iot.com ↗</a>",
+      backgroundColor: "#0b1d3a",
+      textColor: "#f1f5f9",
       isCloseable: false,
     },
   } satisfies Preset.ThemeConfig,

@@ -1,0 +1,99 @@
+/**
+ * Lavin Design System — Shared Token Library
+ *
+ * These CSS custom properties are the single source of truth for the LavinIoT
+ * visual identity. Every application in the LavinIoT ecosystem uses these tokens:
+ *
+ *   www.lavin-iot.com    — marketing website
+ *   book.lavin-iot.com   — engineering handbook (Lavin Book)
+ *   app.lavin-iot.com    — platform dashboard
+ *   portal.lavin-iot.com — customer portal
+ *   admin.lavin-iot.com  — admin console
+ *
+ * ─────────────────────────────────────────────────────────────────────────────
+ * DO NOT duplicate these definitions in application stylesheets.
+ * Import or reference this file as the canonical token source.
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+/* ─── Light mode (default) ─────────────────────────────────────────────────── */
+:root {
+  /* Core palette */
+  --lavin-bg:           #fafbfd;
+  --lavin-fg:           #0b1d3a;
+  --lavin-muted:        #64748b;
+  --lavin-surface:      #f1f5f9;
+  --lavin-border:       #e2e8f0;
+
+  /* Brand accent — IoT green */
+  --lavin-accent:       #00a86b;
+  --lavin-accent-light: #34d399;
+  --lavin-accent-glow:  rgba(0, 168, 107, 0.35);
+
+  /* Navy — primary brand color */
+  --lavin-primary:      #0b1d3a;
+  --lavin-primary-light:#1e3a5f;
+
+  /* Glass / blur surfaces */
+  --lavin-glass:        rgba(255, 255, 255, 0.72);
+  --lavin-glass-border: rgba(255, 255, 255, 0.5);
+
+  /* Typography */
+  --lavin-font-body:    "Inter", system-ui, -apple-system, sans-serif;
+  --lavin-font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+
+  /* Spacing scale */
+  --lavin-space-1:  0.25rem;   /* 4px  */
+  --lavin-space-2:  0.5rem;    /* 8px  */
+  --lavin-space-3:  0.75rem;   /* 12px */
+  --lavin-space-4:  1rem;      /* 16px */
+  --lavin-space-6:  1.5rem;    /* 24px */
+  --lavin-space-8:  2rem;      /* 32px */
+  --lavin-space-12: 3rem;      /* 48px */
+  --lavin-space-16: 4rem;      /* 64px */
+  --lavin-space-20: 5rem;      /* 80px */
+  --lavin-space-28: 7rem;      /* 112px */
+  --lavin-space-36: 9rem;      /* 144px */
+
+  /* Border radius */
+  --lavin-radius-sm:   0.5rem;   /* 8px  — inline elements, badges */
+  --lavin-radius-md:   0.75rem;  /* 12px — buttons, inputs */
+  --lavin-radius-lg:   1rem;     /* 16px — cards */
+  --lavin-radius-xl:   1.25rem;  /* 20px — large cards */
+  --lavin-radius-full: 9999px;   /* pill / badge */
+
+  /* Shadows */
+  --lavin-shadow-sm:   0 1px 3px rgba(11, 29, 58, 0.08), 0 1px 2px rgba(11, 29, 58, 0.04);
+  --lavin-shadow-md:   0 4px 16px rgba(11, 29, 58, 0.08), 0 0 0 1px rgba(0, 168, 107, 0.05);
+  --lavin-shadow-lg:   0 20px 40px -12px rgba(11, 29, 58, 0.15), 0 0 0 1px rgba(0, 168, 107, 0.08);
+  --lavin-shadow-glow: 0 0 24px -4px rgba(0, 168, 107, 0.35);
+
+  /* Animations */
+  --lavin-transition:        0.3s ease;
+  --lavin-transition-fast:   0.15s ease;
+  --lavin-transition-slow:   0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ─── Dark mode ─────────────────────────────────────────────────────────────── */
+[data-theme="dark"] {
+  --lavin-bg:           #060b14;
+  --lavin-fg:           #f1f5f9;
+  --lavin-muted:        #94a3b8;
+  --lavin-surface:      #0f172a;
+  --lavin-border:       #1e293b;
+
+  --lavin-accent:       #34d399;
+  --lavin-accent-light: #6ee7b7;
+  --lavin-accent-glow:  rgba(52, 211, 153, 0.25);
+
+  --lavin-primary:      #1e3a5f;
+  --lavin-primary-light:#2d4a6f;
+
+  --lavin-glass:        rgba(15, 23, 42, 0.75);
+  --lavin-glass-border: rgba(255, 255, 255, 0.08);
+
+  --lavin-shadow-sm:   0 1px 3px rgba(0, 0, 0, 0.3);
+  --lavin-shadow-md:   0 4px 16px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(52, 211, 153, 0.08);
+  --lavin-shadow-lg:   0 20px 40px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(52, 211, 153, 0.12);
+  --lavin-shadow-glow: 0 0 24px -4px rgba(52, 211, 153, 0.25);
+}

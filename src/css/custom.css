@@ -354,27 +354,49 @@ button[class*="colorModeToggle"] {
   border-color: rgba(255, 255, 255, 0.12) !important;
 }
 
-/* Mobile drawer: full-height panel with visible handbook list */
+/*
+  Mobile drawer
+  Infima sets .navbar-sidebar__brand { flex: 1 }. That is fine in Infima's
+  original layout, but with our column flex drawer it expands the header to
+  full height and collapses .navbar-sidebar__items to 0 — so users only saw
+  logo / theme toggle / X and no section list.
+*/
+
 .navbar-sidebar {
+  position: fixed !important;
   z-index: calc(var(--ifm-z-index-overlay) + 1) !important;
-  background: var(--li-background) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  height: 100% !important;
-  max-height: 100dvh !important;
   top: 0 !important;
   bottom: 0 !important;
+  left: 0 !important;
+  width: min(86vw, 320px) !important;
+  height: 100% !important;
+  max-height: 100dvh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background: var(--li-background) !important;
+  box-shadow: 8px 0 32px rgba(0, 0, 0, 0.35) !important;
   overflow: hidden !important;
+  transform: translate3d(-105%, 0, 0);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.2s ease, opacity 0.2s ease, visibility 0.2s ease;
 }
 
 .navbar-sidebar__backdrop {
   z-index: var(--ifm-z-index-overlay) !important;
 }
 
+/* Critical: brand must NOT grow (override Infima flex:1) */
 .navbar-sidebar__brand {
+  flex: 0 0 auto !important;
+  flex-grow: 0 !important;
+  flex-shrink: 0 !important;
+  flex-basis: auto !important;
+  height: var(--ifm-navbar-height) !important;
+  max-height: var(--ifm-navbar-height) !important;
   background: var(--li-background);
   border-bottom: 1px solid var(--li-border);
-  flex-shrink: 0;
+  box-shadow: none !important;
 }
 
 .navbar-sidebar__close {
@@ -385,21 +407,27 @@ button[class*="colorModeToggle"] {
   pointer-events: auto !important;
 }
 
-.navbar-sidebar--show .navbar-sidebar,
+.navbar-sidebar--show .navbar-sidebar {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
 .navbar-sidebar--show .navbar-sidebar__backdrop {
   opacity: 1 !important;
   visibility: visible !important;
-  transform: translateZ(0) !important;
 }
 
-/* Scrollable body — this is where section links live */
+/* Scrollable section list fills remaining height */
 .navbar-sidebar__items {
   flex: 1 1 auto !important;
   min-height: 0 !important;
   height: auto !important;
+  max-height: none !important;
   overflow-x: hidden !important;
   overflow-y: auto !important;
   -webkit-overflow-scrolling: touch;
+  transform: none !important;
 }
 
 .navbar-sidebar__item {
@@ -437,6 +465,33 @@ button[class*="colorModeToggle"] {
 
 .mobileHandbookMenu .navbar-sidebar__back {
   display: none !important;
+}
+
+/* Homepage has no docs sidebar context — still show a clear handbook index */
+.mobileHandbookFallback {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--li-border);
+}
+
+.mobileHandbookFallback a {
+  display: block;
+  border-radius: 0.5rem;
+  padding: 0.55rem 0.75rem;
+  color: var(--li-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.mobileHandbookFallback a:hover,
+.mobileHandbookFallback a:active {
+  color: var(--li-accent);
+  background: rgba(2, 132, 199, 0.1);
+  text-decoration: none;
 }
 
 /* ─── Announcement bar — navy, not cyan ─────────────────────────────────── */

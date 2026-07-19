@@ -8,45 +8,45 @@
  * No value is invented here.
  *
  * Color hierarchy (FROZEN):
- *   DOMINANT  — Navy  #0b1d3a / #060b14 dark
- *   ACCENT    — Green #00a86b / #34d399 dark (CTAs, active, highlights ONLY)
+ *   DOMINANT  — Navy  #0a1628 / #050910 dark
+ *   ACCENT    — Cyan #0284c7 / #38bdf8 dark (CTAs, active, highlights ONLY)
  */
 
 /* ─── Fonts (same as website layout.tsx) ─────────────────────────────────── */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
 
 /* ─── Design tokens (exact from packages/lavin-design-system/tokens.css) ─── */
 
 :root {
   /* Colors — exact from globals.css */
-  --li-background:    #fafbfd;
+  --li-background:    #f2f5f9;
   --li-surface:       #f1f5f9;
-  --li-foreground:    #0b1d3a;
+  --li-foreground:    #0a1628;
   --li-muted:         #64748b;
   --li-border:        #e2e8f0;
-  --li-primary:       #0b1d3a;
+  --li-primary:       #0a1628;
   --li-primary-light: #1e3a5f;
-  --li-accent:        #00a86b;
-  --li-accent-end:    #00c896;
-  --li-accent-light:  #34d399;
-  --li-accent-glow:   rgba(0, 168, 107, 0.35);
+  --li-accent:        #0284c7;
+  --li-accent-end:    #0ea5e9;
+  --li-accent-light:  #38bdf8;
+  --li-accent-glow:   rgba(2, 132, 199, 0.35);
   --li-glass:         rgba(255, 255, 255, 0.72);
   --li-glass-border:  rgba(255, 255, 255, 0.5);
 
   /* ── IFM overrides — mapping tokens to Docusaurus variables ── */
 
-  /* Primary = accent green (used for links, active sidebar, breadcrumbs) */
-  --ifm-color-primary:           #00a86b;
-  --ifm-color-primary-dark:      #009961;
-  --ifm-color-primary-darker:    #00905b;
-  --ifm-color-primary-darkest:   #007850;
-  --ifm-color-primary-light:     #00b775;
-  --ifm-color-primary-lighter:   #00c07c;
-  --ifm-color-primary-lightest:  #00d18a;
+  /* Primary = accent cyan (used for links, active sidebar, breadcrumbs) */
+  --ifm-color-primary:           #0284c7;
+  --ifm-color-primary-dark:      #0369a1;
+  --ifm-color-primary-darker:    #075985;
+  --ifm-color-primary-darkest:   #0c4a6e;
+  --ifm-color-primary-light:     #0ea5e9;
+  --ifm-color-primary-lighter:   #38bdf8;
+  --ifm-color-primary-lightest:  #7dd3fc;
 
   /* Typography — exact from layout.tsx */
-  --ifm-font-family-base:     "Inter", system-ui, -apple-system, sans-serif;
-  --ifm-heading-font-family:  "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  --ifm-font-family-base:     "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --ifm-heading-font-family:  "Space Grotesk", "IBM Plex Sans", system-ui, sans-serif;
   --ifm-font-size-base:       16px;
   --ifm-line-height-base:     1.65;
   --ifm-font-weight-bold:     600;
@@ -81,7 +81,7 @@
   --ifm-code-font-size:                0.875rem;
   --ifm-code-border-radius:            0.375rem;  /* rounded */
   --ifm-code-background:               var(--li-surface);
-  --docusaurus-highlighted-code-line-bg: rgba(0, 168, 107, 0.08);
+  --docusaurus-highlighted-code-line-bg: rgba(2, 132, 199, 0.08);
 
   /* Alerts */
   --ifm-alert-border-radius:   0.75rem;
@@ -131,29 +131,29 @@
 /* ─── Dark mode ──────────────────────────────────────────────────────────── */
 
 [data-theme="dark"] {
-  --li-background:    #060b14;
+  --li-background:    #050910;
   --li-surface:       #0f172a;
   --li-foreground:    #f1f5f9;
   --li-muted:         #94a3b8;
   --li-border:        #1e293b;
   --li-primary:       #1e3a5f;
   --li-primary-light: #2d4a6f;
-  --li-accent:        #34d399;
-  --li-accent-end:    #6ee7b7;
-  --li-accent-light:  #6ee7b7;
-  --li-accent-glow:   rgba(52, 211, 153, 0.25);
+  --li-accent:        #38bdf8;
+  --li-accent-end:    #7dd3fc;
+  --li-accent-light:  #7dd3fc;
+  --li-accent-glow:   rgba(56, 189, 248, 0.25);
   --li-glass:         rgba(6, 11, 20, 0.85);
   --li-glass-border:  rgba(255, 255, 255, 0.08);
 
-  --ifm-color-primary:           #34d399;
-  --ifm-color-primary-dark:      #2dc98b;
-  --ifm-color-primary-darker:    #28be84;
-  --ifm-color-primary-darkest:   #20a471;
-  --ifm-color-primary-light:     #3cdca1;
-  --ifm-color-primary-lighter:   #47dfa7;
-  --ifm-color-primary-lightest:  #5ce4b3;
+  --ifm-color-primary:           #38bdf8;
+  --ifm-color-primary-dark:      #0ea5e9;
+  --ifm-color-primary-darker:    #0284c7;
+  --ifm-color-primary-darkest:   #0369a1;
+  --ifm-color-primary-light:     #38bdf8;
+  --ifm-color-primary-lighter:   #7dd3fc;
+  --ifm-color-primary-lightest:  #bae6fd;
 
-  --ifm-background-color:         #060b14;
+  --ifm-background-color:         #050910;
   --ifm-background-surface-color: #0f172a;
   --ifm-navbar-background-color:  rgba(6, 11, 20, 0.85);
   --ifm-footer-background-color:  #020509;
@@ -161,7 +161,7 @@
   --ifm-code-background:          #0f172a;
   --ifm-color-emphasis-200:       #1e293b;
   --ifm-color-emphasis-700:       #94a3b8;
-  --docusaurus-highlighted-code-line-bg: rgba(52, 211, 153, 0.08);
+  --docusaurus-highlighted-code-line-bg: rgba(56, 189, 248, 0.08);
 }
 
 /* ─── Base ───────────────────────────────────────────────────────────────── */
@@ -180,17 +180,17 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  font-family: "Space Grotesk", "IBM Plex Sans", system-ui, sans-serif;
   letter-spacing: -0.02em;
 }
 
 ::selection {
   /* from globals.css: color-mix(in srgb, var(--accent) 30%, transparent) */
-  background: rgba(0, 168, 107, 0.3);
+  background: rgba(2, 132, 199, 0.3);
 }
 
 [data-theme="dark"] ::selection {
-  background: rgba(52, 211, 153, 0.25);
+  background: rgba(56, 189, 248, 0.25);
 }
 
 /* ─── Navbar — glass effect matching website header (scrolled state) ──────── */
@@ -223,18 +223,31 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Logo brand area */
 .navbar__brand {
-  gap: 0.625rem;  /* gap-2.5 from website Logo component */
+  gap: 0.75rem;
   margin-right: 0;
+  align-items: center;
+}
+
+/* Keep logo always visible on mobile (never collapse mark) */
+.navbar__brand .navbar__logo {
+  display: flex !important;
 }
 
 .navbar__logo {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.navbar__logo img {
+  width: 40px !important;
+  height: 40px !important;
+  object-fit: contain;
 }
 
 /* Navbar title — matches website LogoWordmark: font-display font-semibold tracking-tight */
 .navbar__title {
-  font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  font-family: "Space Grotesk", "IBM Plex Sans", system-ui, sans-serif;
   font-weight: 600;
   font-size: 1.125rem;    /* approximately text-xl */
   letter-spacing: -0.02em; /* tracking-tight */
@@ -259,18 +272,18 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar__link:hover {
   color: var(--li-accent);
-  background: rgba(0, 168, 107, 0.1);  /* bg-accent/10 */
+  background: rgba(2, 132, 199, 0.1);  /* bg-accent/10 */
   text-decoration: none;
 }
 
 .navbar__link--active {
   color: var(--li-accent);
-  background: rgba(0, 168, 107, 0.1);
+  background: rgba(2, 132, 199, 0.1);
 }
 
 [data-theme="dark"] .navbar__link:hover,
 [data-theme="dark"] .navbar__link--active {
-  background: rgba(52, 211, 153, 0.1);
+  background: rgba(56, 189, 248, 0.1);
 }
 
 /* Dark mode toggle button — matches website's theme toggle:
@@ -288,8 +301,8 @@ button[class*="colorModeToggle"],
 
 .navbar__toggle:hover,
 button[class*="colorModeToggle"]:hover {
-  border-color: rgba(0, 168, 107, 0.3) !important;
-  background: rgba(0, 168, 107, 0.1) !important;
+  border-color: rgba(2, 132, 199, 0.3) !important;
+  background: rgba(2, 132, 199, 0.1) !important;
   color: var(--li-accent) !important;
 }
 
@@ -298,12 +311,12 @@ button[class*="colorModeToggle"]:hover {
   border-color: rgba(255, 255, 255, 0.08) !important;
 }
 
-/* ─── Announcement bar — navy, not green ─────────────────────────────────── */
+/* ─── Announcement bar — navy, not cyan ─────────────────────────────────── */
 
 div[class*="announcementBar"] {
-  background: #0b1d3a;
+  background: #0a1628;
   color: #ffffff;
-  font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  font-family: "Space Grotesk", "IBM Plex Sans", system-ui, sans-serif;
   font-weight: 500;
   font-size: 0.85rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
@@ -330,10 +343,10 @@ div[class*="announcementBarContent"] a {
   background: transparent;
 }
 
-/* Sidebar category labels — uppercase, navy, Plus Jakarta Sans */
+/* Sidebar category labels — uppercase, navy, Space Grotesk */
 .menu__link--sublist,
 .menu__list-item-collapsible .menu__link--sublist {
-  font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  font-family: "Space Grotesk", "IBM Plex Sans", system-ui, sans-serif;
   font-weight: 700;
   font-size: 0.725rem;
   text-transform: uppercase;
@@ -346,7 +359,7 @@ div[class*="announcementBarContent"] a {
   color: #94a3b8;
 }
 
-/* Sidebar links — muted, hover gets slight navy bg (not green bg) */
+/* Sidebar links — muted, hover gets slight navy bg (not cyan bg) */
 .menu__link {
   border-radius: 0.75rem;    /* rounded-xl from website */
   font-size: 0.875rem;
@@ -367,15 +380,15 @@ div[class*="announcementBarContent"] a {
   background: rgba(255, 255, 255, 0.05);
 }
 
-/* Active link: green accent ONLY here */
+/* Active link: cyan accent ONLY here */
 .menu__link--active {
   color: var(--li-accent) !important;
-  background: rgba(0, 168, 107, 0.08) !important;
+  background: rgba(2, 132, 199, 0.08) !important;
   font-weight: 600;
 }
 
 [data-theme="dark"] .menu__link--active {
-  background: rgba(52, 211, 153, 0.1) !important;
+  background: rgba(56, 189, 248, 0.1) !important;
 }
 
 /* ─── Doc content ────────────────────────────────────────────────────────── */
@@ -411,9 +424,9 @@ table {
 }
 
 table th {
-  background: #0b1d3a;     /* --li-primary */
+  background: #0a1628;     /* --li-primary */
   color: #ffffff;
-  font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  font-family: "Space Grotesk", "IBM Plex Sans", system-ui, sans-serif;
   font-weight: 700;
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -480,13 +493,13 @@ code {
   font-size: 0.9rem;
 }
 
-.alert--info    { border-left-color: var(--li-accent); background: rgba(0, 168, 107, 0.04); }
-.alert--success { border-left-color: var(--li-accent); background: rgba(0, 168, 107, 0.06); }
+.alert--info    { border-left-color: var(--li-accent); background: rgba(2, 132, 199, 0.04); }
+.alert--success { border-left-color: var(--li-accent); background: rgba(2, 132, 199, 0.06); }
 .alert--warning { border-left-color: #d97706;          background: rgba(217, 119, 6, 0.04); }
 .alert--danger  { border-left-color: #dc2626;          background: rgba(220, 38, 38, 0.04); }
 
 [data-theme="dark"] .alert--info, [data-theme="dark"] .alert--success {
-  background: rgba(52, 211, 153, 0.05);
+  background: rgba(56, 189, 248, 0.05);
 }
 
 /* ─── Breadcrumbs ────────────────────────────────────────────────────────── */
@@ -509,7 +522,7 @@ code {
 
 .pagination-nav__link:hover {
   border-color: var(--li-accent);
-  background: rgba(0, 168, 107, 0.05);
+  background: rgba(2, 132, 199, 0.05);
   color: var(--li-accent);
   box-shadow: none;
 }
@@ -535,7 +548,7 @@ code {
 
 .footer {
   /* website uses navy/primary for footer; book uses same */
-  background: #0b1d3a;
+  background: #0a1628;
   color: #f1f5f9;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
@@ -545,9 +558,9 @@ code {
   border-top-color: rgba(255, 255, 255, 0.04);
 }
 
-/* Footer column headings — uppercase tracking, Plus Jakarta Sans */
+/* Footer column headings — uppercase tracking, Space Grotesk */
 .footer__title {
-  font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  font-family: "Space Grotesk", "IBM Plex Sans", system-ui, sans-serif;
   font-weight: 700;
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -564,7 +577,7 @@ code {
 }
 
 .footer__link-item:hover {
-  color: var(--li-accent-light);  /* #34d399 — exact from website */
+  color: var(--li-accent-light);  /* #38bdf8 — exact from website */
 }
 
 .footer__copyright {
@@ -593,8 +606,8 @@ code {
   display: inline-flex;
   align-items: center;
   border-radius: 9999px;
-  border: 1px solid rgba(0, 168, 107, 0.2);
-  background: rgba(0, 168, 107, 0.05);
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  background: rgba(2, 132, 199, 0.05);
   padding: 0.2rem 0.75rem;
   font-size: 0.7rem;
   font-weight: 700;
@@ -634,7 +647,7 @@ code {
   vertical-align: middle;
 }
 
-/* ─── Section meta label — accent green, small uppercase ─────────────────── */
+/* ─── Section meta label — accent cyan, small uppercase ─────────────────── */
 
 .section-meta {
   font-size: 0.72rem;
@@ -682,12 +695,12 @@ code {
 
 /* premium-card:hover */
 .principle-card:hover {
-  border-color: rgba(0, 168, 107, 0.25);
+  border-color: rgba(2, 132, 199, 0.25);
   transform: translateY(-2px);
 }
 
 [data-theme="dark"] .principle-card:hover {
-  border-color: rgba(52, 211, 153, 0.25);
+  border-color: rgba(56, 189, 248, 0.25);
 }
 
 .principle-card h3 {
@@ -695,7 +708,7 @@ code {
   font-weight: 700;
   color: var(--li-foreground);
   margin: 0 0 0.5rem;
-  font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  font-family: "Space Grotesk", "IBM Plex Sans", system-ui, sans-serif;
 }
 
 .principle-card p {

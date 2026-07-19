@@ -34,7 +34,7 @@ const sections: SectionItem[] = [
   {
     number: "03",
     title: "Module Catalog",
-    description: "Every discrete platform capability — purpose, interface, dependencies, and isolation rules.",
+    description: "Every discrete platform capability, purpose, interface, dependencies, and isolation rules.",
     href: "/module-catalog",
   },
   {
@@ -64,19 +64,19 @@ const sections: SectionItem[] = [
   {
     number: "08",
     title: "ADR",
-    description: "Architecture Decision Records — every significant design choice with full rationale.",
+    description: "Architecture Decision Records, every significant design choice with full rationale.",
     href: "/adr",
   },
   {
     number: "09",
     title: "Sprint Journal",
-    description: "Engineering records per sprint — what was planned, delivered, deferred, and learned.",
+    description: "Engineering records per sprint, what was planned, delivered, deferred, and learned.",
     href: "/sprint-journal",
   },
   {
     number: "10",
     title: "Release Notes",
-    description: "What shipped, what changed, and what was fixed — per release, traceable to ADRs and sprints.",
+    description: "What shipped, what changed, and what was fixed, per release, traceable to ADRs and sprints.",
     href: "/release-notes",
   },
 ];
@@ -100,7 +100,7 @@ const rules = [
   {
     number: "04",
     title: "No business logic lives here.",
-    body: "This book governs the platform — it does not implement it.",
+    body: "This book governs the platform, it does not implement it.",
   },
   {
     number: "05",
@@ -126,34 +126,45 @@ const HomePage: FC = () => {
   const { siteConfig } = useDocusaurusContext();
 
   return (
-    <Layout title="Lavin Book — Engineering Handbook" description={siteConfig.tagline}>
+    <Layout title="Lavin Book · Engineering Handbook" description={siteConfig.tagline}>
 
       {/* ── Hero ── */}
       <header className={styles.hero}>
-        {/* Mesh background */}
         <div className={styles.heroMesh} aria-hidden="true" />
-        {/* Glow orbs */}
         <div className={styles.glowOrb1} aria-hidden="true" />
         <div className={styles.glowOrb2} aria-hidden="true" />
 
         <div className={styles.heroInner}>
-          {/* Badge */}
+          {/* Canonical L monogram, same asset as www.lavin-iot.com */}
+          <div className={styles.brandMark}>
+            <img
+              src="/img/logo.svg"
+              alt="LavinIoT"
+              width={88}
+              height={88}
+              className={`${styles.brandMarkImg} ${styles.brandMarkLight}`}
+            />
+            <img
+              src="/img/logo-dark.svg"
+              alt="LavinIoT"
+              width={88}
+              height={88}
+              className={`${styles.brandMarkImg} ${styles.brandMarkDark}`}
+            />
+          </div>
+
           <div className={styles.badge}>
             <span className={styles.badgeDot} aria-hidden="true" />
             Internal Engineering Handbook
           </div>
 
-          {/* Title */}
           <Heading as="h1" className={styles.heroTitle}>
             Lavin<span className={styles.heroAccent}>Book</span>
           </Heading>
 
-          {/* Tagline */}
           <p className={styles.heroTagline}>{siteConfig.tagline}</p>
 
-          {/* Banner */}
           <div className={styles.heroBanner}>
-            <span className={styles.heroBannerDot} aria-hidden="true">📘</span>
             The official engineering handbook of LavinIoT. Not for external distribution.
           </div>
 

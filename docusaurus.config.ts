@@ -67,7 +67,7 @@ const config: Config = {
     image: "img/laviniot-social.png",
 
     metadata: [
-      { name: "theme-color", content: "#0b1d3a" },
+      { name: "theme-color", content: "#0a1628" },
     ],
 
     navbar: {
@@ -76,8 +76,8 @@ const config: Config = {
         alt: "LavinIoT",
         src: "img/logo.svg",
         srcDark: "img/logo-dark.svg",
-        width: 32,
-        height: 32,
+        width: 40,
+        height: 40,
       },
       hideOnScroll: false,
       items: [
@@ -116,8 +116,8 @@ const config: Config = {
         alt: "LavinIoT",
         src: "img/logo-dark.svg",
         href: "https://www.lavin-iot.com",
-        width: 32,
-        height: 32,
+        width: 40,
+        height: 40,
       },
       links: [
         {
@@ -174,7 +174,7 @@ const config: Config = {
     mermaid: {
       theme: { light: "neutral", dark: "dark" },
       options: {
-        fontFamily: "Inter, system-ui, sans-serif",
+        fontFamily: "IBM Plex Sans, system-ui, sans-serif",
         fontSize: 14,
       },
     },
@@ -193,10 +193,10 @@ const config: Config = {
     },
 
     announcementBar: {
-      id: "lavin-book-v1-brand",
+      id: "lavin-book-industrial-v2",
       content:
-        "📘 <strong>Lavin Book</strong> — The official engineering handbook of LavinIoT. <a href='https://www.lavin-iot.com' style='color:#34d399;text-decoration:underline;' target='_blank' rel='noopener noreferrer'>lavin-iot.com ↗</a>",
-      backgroundColor: "#0b1d3a",
+        "<strong>Lavin Book</strong> · The official engineering handbook of LavinIoT. <a href='https://www.lavin-iot.com' style='color:#38bdf8;text-decoration:underline;' target='_blank' rel='noopener noreferrer'>lavin-iot.com</a>",
+      backgroundColor: "#0a1628",
       textColor: "#f1f5f9",
       isCloseable: false,
     },

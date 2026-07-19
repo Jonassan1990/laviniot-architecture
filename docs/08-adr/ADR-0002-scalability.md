@@ -12,7 +12,7 @@ title: "ADR-0002: The platform shall scale from 10 devices to enterprise deploym
 | **Author** | Chief Software Architect |
 | **Supersedes** | N/A |
 | **Superseded by** | N/A |
-| **Related** | [ADR-0001](/08-adr/ADR-0001-modularity) |
+| **Related** | [ADR-0001](/adr/ADR-0001-modularity) |
 
 ---
 

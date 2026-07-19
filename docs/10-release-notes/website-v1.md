@@ -10,7 +10,7 @@ title: "Website v1 · Release"
 | **Component** | Marketing website |
 | **URL** | `https://www.lavin-iot.com` |
 | **Status** | ✅ Released |
-| **Sprint** | [Sprint 01](/09-sprint-journal/sprint-01) |
+| **Sprint** | [Sprint 01](/sprint-journal/sprint-01) |
 
 ---
 

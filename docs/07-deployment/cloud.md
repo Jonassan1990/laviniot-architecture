@@ -22,4 +22,4 @@ Cloud infrastructure specifications will be documented as the production environ
 
 ## EU region requirement
 
-All customer data is stored in EU regions by default. This is a [Strategic Constraint](/00-vision/strategic-constraints) — it is not configurable per deployment without an explicit customer request and an ADR.
+All customer data is stored in EU regions by default. This is a [Strategic Constraint](/vision/strategic-constraints) — it is not configurable per deployment without an explicit customer request and an ADR.

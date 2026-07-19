@@ -18,67 +18,67 @@ const sections: SectionProps[] = [
     number: "00",
     title: "Vision",
     description: "What LavinIoT is building, who it serves, and the strategic constraints that govern every decision.",
-    href: "/00-vision",
+    href: "/vision",
   },
   {
     number: "01",
     title: "Product",
     description: "Product philosophy, user personas, and the phased roadmap from foundation to scale.",
-    href: "/01-product",
+    href: "/product",
   },
   {
     number: "02",
     title: "Core Architecture",
     description: "Platform topology, Core interface design, provider contracts, security model, and design invariants.",
-    href: "/02-core-architecture",
+    href: "/core-architecture",
   },
   {
     number: "03",
     title: "Module Catalog",
     description: "Every discrete platform capability — purpose, interface, dependencies, and isolation rules.",
-    href: "/03-module-catalog",
+    href: "/module-catalog",
   },
   {
     number: "04",
     title: "Data Model",
     description: "Entity relationships, telemetry schema, multi-tenancy enforcement, and data retention policy.",
-    href: "/04-data-model",
+    href: "/data-model",
   },
   {
     number: "05",
     title: "UX & Design System",
     description: "Interface philosophy, design tokens, component catalogue, and dashboard specifications.",
-    href: "/05-ux-design-system",
+    href: "/ux-design-system",
   },
   {
     number: "06",
     title: "APIs & SDKs",
     description: "REST and MQTT contracts, authentication flows, versioning strategy, and SDK roadmap.",
-    href: "/06-apis-sdks",
+    href: "/apis-sdks",
   },
   {
     number: "07",
     title: "Deployment",
     description: "Cloud, Edge, and Hybrid deployment models. CI/CD pipelines and operational runbooks.",
-    href: "/07-deployment",
+    href: "/deployment",
   },
   {
     number: "08",
     title: "ADR",
     description: "Architecture Decision Records — every significant design choice with full rationale.",
-    href: "/08-adr",
+    href: "/adr",
   },
   {
     number: "09",
     title: "Sprint Journal",
     description: "Engineering records per sprint — what was planned, delivered, deferred, and learned.",
-    href: "/09-sprint-journal",
+    href: "/sprint-journal",
   },
   {
     number: "10",
     title: "Release Notes",
     description: "What shipped, what changed, and what was fixed — per release, traceable to ADRs and sprints.",
-    href: "/10-release-notes",
+    href: "/release-notes",
   },
 ];
 
@@ -110,13 +110,13 @@ const HomePage: FC = () => {
             📘 This is the official engineering handbook of LavinIoT.
           </div>
           <div className={styles.heroButtons}>
-            <Link className={clsx("button button--secondary button--lg", styles.heroBtn)} to="/00-vision">
+            <Link className={clsx("button button--secondary button--lg", styles.heroBtn)} to="/vision">
               Start with Vision →
             </Link>
             <Link className={clsx("button button--outline button--lg", styles.heroBtn)} to="/engineering-principles">
               Engineering Principles
             </Link>
-            <Link className={clsx("button button--outline button--lg", styles.heroBtn)} to="/08-adr">
+            <Link className={clsx("button button--outline button--lg", styles.heroBtn)} to="/adr">
               ADR Log
             </Link>
           </div>

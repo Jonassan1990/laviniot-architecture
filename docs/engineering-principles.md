@@ -20,7 +20,7 @@ The platform is a collection of independently replaceable components, not a mono
 
 **In practice:** Before building a capability, define its module boundary and interface. If you cannot define the interface, you do not understand the capability well enough to build it yet.
 
-→ See [ADR-0001](/08-adr/ADR-0001-modularity)
+→ See [ADR-0001](/adr/ADR-0001-modularity)
 
 ---
 
@@ -30,7 +30,7 @@ No module, provider, or API endpoint is implemented before its interface is defi
 
 **Why:** Implementation decisions made without an interface become the de facto interface. Changing them later breaks everything that depends on them.
 
-**In practice:** Write the interface in [02 Core Architecture](/02-core-architecture) or [03 Module Catalog](/03-module-catalog). Get it reviewed. Then implement.
+**In practice:** Write the interface in [02 Core Architecture](/core-architecture) or [03 Module Catalog](/module-catalog). Get it reviewed. Then implement.
 
 ---
 
@@ -52,7 +52,7 @@ Every external dependency — a database, a message broker, an AI service, a not
 
 **In practice:** If you are writing `import InfluxDB` in a Core or Module file, stop. Create an `ITelemetryStore` interface. Write an `InfluxDBTelemetryStoreProvider`. Import the interface.
 
-→ See [02 Core Architecture — Providers](/02-core-architecture/providers)
+→ See [02 Core Architecture — Providers](/core-architecture/providers)
 
 ---
 
@@ -64,7 +64,7 @@ Platform services (Core, API, Modules) do not hold state in memory between reque
 
 **In practice:** If a service needs to remember something between requests, ask: does this belong in the telemetry store, the alarm store, the device store, or the message bus? Use the appropriate provider.
 
-→ See [ADR-0002](/08-adr/ADR-0002-scalability)
+→ See [ADR-0002](/adr/ADR-0002-scalability)
 
 ---
 
@@ -76,7 +76,7 @@ The architecture is designed to scale horizontally — adding replicas — not v
 
 **In practice:** Design every service to run as N replicas without coordination. If two replicas would produce a conflict (e.g. duplicate alarm events), solve it in the message bus or store — not by preventing multiple replicas.
 
-→ See [ADR-0002](/08-adr/ADR-0002-scalability)
+→ See [ADR-0002](/adr/ADR-0002-scalability)
 
 ---
 

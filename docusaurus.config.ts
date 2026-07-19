@@ -15,6 +15,7 @@ const config: Config = {
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
+  // Suppress deprecated config warning — migrate in Docusaurus v4
 
   i18n: {
     defaultLocale: "en",
@@ -36,8 +37,6 @@ const config: Config = {
           routeBasePath: "/",
           editUrl:
             "https://github.com/Jonassan1990/laviniot-architecture/edit/main/",
-          showLastUpdateTime: true,
-          showLastUpdateAuthor: true,
         },
         blog: false,
         theme: {
@@ -70,7 +69,7 @@ const config: Config = {
           position: "left",
         },
         {
-          to: "/08-adr",
+          to: "/adr",
           label: "ADR",
           position: "left",
         },
@@ -93,25 +92,25 @@ const config: Config = {
         {
           title: "Platform",
           items: [
-            { label: "00 Vision", to: "/00-vision" },
-            { label: "01 Product", to: "/01-product" },
-            { label: "02 Core Architecture", to: "/02-core-architecture" },
+            { label: "00 Vision", to: "/vision" },
+            { label: "01 Product", to: "/product" },
+            { label: "02 Core Architecture", to: "/core-architecture" },
           ],
         },
         {
           title: "Engineering",
           items: [
             { label: "Engineering Principles", to: "/engineering-principles" },
-            { label: "08 ADR", to: "/08-adr" },
-            { label: "06 APIs & SDKs", to: "/06-apis-sdks" },
+            { label: "08 ADR", to: "/adr" },
+            { label: "06 APIs & SDKs", to: "/apis-sdks" },
           ],
         },
         {
           title: "Governance",
           items: [
-            { label: "09 Sprint Journal", to: "/09-sprint-journal" },
-            { label: "10 Release Notes", to: "/10-release-notes" },
-            { label: "07 Deployment", to: "/07-deployment" },
+            { label: "09 Sprint Journal", to: "/sprint-journal" },
+            { label: "10 Release Notes", to: "/release-notes" },
+            { label: "07 Deployment", to: "/deployment" },
           ],
         },
       ],

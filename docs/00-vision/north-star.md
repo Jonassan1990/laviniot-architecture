@@ -27,7 +27,7 @@ This is the test of every product decision. If a proposed feature, interface, or
 
 ## What comes after the north star
 
-The north star defines the destination. The [Roadmap](/01-product/roadmap) defines the path.
+The north star defines the destination. The [Roadmap](/product/roadmap) defines the path.
 
 Phase 1 establishes the foundation: connectivity, telemetry storage, and basic alarming.
 Phase 2 adds intelligence: AI-assisted anomaly detection and predictive signals.

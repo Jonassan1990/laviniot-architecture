@@ -33,7 +33,7 @@ OPC-UA, MQTT, Modbus, and REST are first-class citizens. The platform must integ
 
 AI inference must be available where connectivity is limited. The platform cannot assume cloud connectivity for time-critical decisions.
 
-**Architectural consequence:** The edge module is a first-class deployment target. ONNX-compatible local inference is supported. See [ADR-0001](/08-adr/ADR-0001-modularity) and [07 Deployment](/07-deployment).
+**Architectural consequence:** The edge module is a first-class deployment target. ONNX-compatible local inference is supported. See [ADR-0001](/adr/ADR-0001-modularity) and [07 Deployment](/deployment).
 
 ---
 

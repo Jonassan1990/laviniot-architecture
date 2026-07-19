@@ -1,7 +1,6 @@
 ---
 id: intro
-slug: /
-title: Lavin Book
+title: Lavin Book — Handbook
 sidebar_position: 1
 ---
 
@@ -27,12 +26,12 @@ This book governs the platform. The platform does not govern this book.
 
 | If you are... | Start here |
 |---|---|
-| A new engineer | [Engineering Principles](/engineering-principles) → [00 Vision](/00-vision) → [02 Core Architecture](/02-core-architecture) |
-| An architect | [08 ADR](/08-adr) → [02 Core Architecture](/02-core-architecture) → [03 Module Catalog](/03-module-catalog) |
-| A product designer | [01 Product](/01-product) → [05 UX & Design System](/05-ux-design-system) |
-| Reviewing a decision | [08 ADR](/08-adr) |
-| Writing a new module | [02 Core Architecture](/02-core-architecture) → [03 Module Catalog](/03-module-catalog) → [06 APIs & SDKs](/06-apis-sdks) |
-| Deploying the platform | [07 Deployment](/07-deployment) |
+| A new engineer | [Engineering Principles](/engineering-principles) → [00 Vision](/vision) → [02 Core Architecture](/core-architecture) |
+| An architect | [08 ADR](/adr) → [02 Core Architecture](/core-architecture) → [03 Module Catalog](/module-catalog) |
+| A product designer | [01 Product](/product) → [05 UX & Design System](/ux-design-system) |
+| Reviewing a decision | [08 ADR](/adr) |
+| Writing a new module | [02 Core Architecture](/core-architecture) → [03 Module Catalog](/module-catalog) → [06 APIs & SDKs](/apis-sdks) |
+| Deploying the platform | [07 Deployment](/deployment) |
 
 ---
 
@@ -52,14 +51,14 @@ This book governs the platform. The platform does not govern this book.
 | Section | Purpose |
 |---|---|
 | [⚙️ Engineering Principles](/engineering-principles) | The non-negotiable engineering values |
-| [00 Vision](/00-vision) | Platform direction and strategic constraints |
-| [01 Product](/01-product) | Product philosophy, personas, roadmap |
-| [02 Core Architecture](/02-core-architecture) | Topology, Core, Providers, Security, Invariants |
-| [03 Module Catalog](/03-module-catalog) | Every discrete capability unit |
-| [04 Data Model](/04-data-model) | Entities, schema, multi-tenancy, retention |
-| [05 UX & Design System](/05-ux-design-system) | Design principles, tokens, components, screens |
-| [06 APIs & SDKs](/06-apis-sdks) | REST, MQTT, authentication, SDK roadmap |
-| [07 Deployment](/07-deployment) | Cloud, Edge, Hybrid, CI/CD, runbooks |
-| [08 ADR](/08-adr) | Architecture Decision Records |
-| [09 Sprint Journal](/09-sprint-journal) | Engineering records per sprint |
-| [10 Release Notes](/10-release-notes) | What shipped, what changed |
+| [00 Vision](/vision) | Platform direction and strategic constraints |
+| [01 Product](/product) | Product philosophy, personas, roadmap |
+| [02 Core Architecture](/core-architecture) | Topology, Core, Providers, Security, Invariants |
+| [03 Module Catalog](/module-catalog) | Every discrete capability unit |
+| [04 Data Model](/data-model) | Entities, schema, multi-tenancy, retention |
+| [05 UX & Design System](/ux-design-system) | Design principles, tokens, components, screens |
+| [06 APIs & SDKs](/apis-sdks) | REST, MQTT, authentication, SDK roadmap |
+| [07 Deployment](/deployment) | Cloud, Edge, Hybrid, CI/CD, runbooks |
+| [08 ADR](/adr) | Architecture Decision Records |
+| [09 Sprint Journal](/sprint-journal) | Engineering records per sprint |
+| [10 Release Notes](/release-notes) | What shipped, what changed |

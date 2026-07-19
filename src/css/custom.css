@@ -1,0 +1,97 @@
+/* LavinIoT Architecture Portal — Custom Styles */
+
+:root {
+  --ifm-color-primary: #0B6E4F;
+  --ifm-color-primary-dark: #095f44;
+  --ifm-color-primary-darker: #085a3f;
+  --ifm-color-primary-darkest: #074a34;
+  --ifm-color-primary-light: #0d7d5a;
+  --ifm-color-primary-lighter: #0e825f;
+  --ifm-color-primary-lightest: #109268;
+  --ifm-code-font-size: 95%;
+  --ifm-font-family-base: "Inter", system-ui, -apple-system, sans-serif;
+  --ifm-heading-font-family: "Inter", system-ui, -apple-system, sans-serif;
+  --ifm-font-weight-bold: 600;
+  --docusaurus-highlighted-code-line-bg: rgba(11, 110, 79, 0.1);
+}
+
+[data-theme="dark"] {
+  --ifm-color-primary: #1A9B6C;
+  --ifm-color-primary-dark: #178a5f;
+  --ifm-color-primary-darker: #16835a;
+  --ifm-color-primary-darkest: #126e4b;
+  --ifm-color-primary-light: #1dac79;
+  --ifm-color-primary-lighter: #1eb37e;
+  --ifm-color-primary-lightest: #21c48e;
+  --docusaurus-highlighted-code-line-bg: rgba(26, 155, 108, 0.15);
+}
+
+/* Announcement bar */
+.announcement-bar {
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+/* Hero */
+.hero--primary {
+  background: linear-gradient(135deg, #0B6E4F 0%, #074a34 100%);
+}
+
+/* ADR badges */
+.badge--status-accepted {
+  background-color: #0B6E4F;
+  color: white;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge--status-proposed {
+  background-color: #D4A017;
+  color: #1a1a1a;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge--status-deprecated {
+  background-color: #6b7280;
+  color: white;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Mermaid diagram wrapper */
+.mermaid {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+/* Admonition customization */
+.alert--info {
+  border-left-color: #0B6E4F;
+}
+
+/* Sidebar improvements */
+.menu__link--active {
+  font-weight: 600;
+}
+
+/* Table improvements */
+table {
+  display: table;
+  width: 100%;
+}
+
+th {
+  background-color: var(--ifm-color-primary);
+  color: white;
+}
+
+[data-theme="dark"] th {
+  background-color: var(--ifm-color-primary-dark);
+}

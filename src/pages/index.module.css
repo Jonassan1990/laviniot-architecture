@@ -1,0 +1,125 @@
+.heroBanner {
+  padding: 5rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroTitle {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.heroSubtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 640px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+.heroButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.heroButton {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Pillars */
+
+.pillarsSection {
+  padding: 4rem 0;
+}
+
+.pillarsHeading {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 3rem;
+}
+
+.pillarsHeading p {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.pillarsRow {
+  row-gap: 1.5rem;
+}
+
+.pillar {
+  padding: 0.5rem;
+}
+
+.pillarCard {
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  height: 100%;
+}
+
+.pillarCard:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 4px 16px rgba(11, 110, 79, 0.12);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.pillarIcon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.pillarTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-primary);
+}
+
+.pillarDescription {
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Principles */
+
+.principlesSection {
+  background: var(--ifm-color-emphasis-100);
+  padding: 4rem 0;
+}
+
+[data-theme="dark"] .principlesSection {
+  background: var(--ifm-background-surface-color);
+}
+
+.principlesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.principlesList li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.principlesList li:last-child {
+  border-bottom: none;
+}

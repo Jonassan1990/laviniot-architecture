@@ -1,12 +1,7 @@
 <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!--
-    LavinIoT canonical mark — L monogram with diagonal accent.
-    Source of truth for all LavinIoT applications.
-    DO NOT modify this file. Changes must be approved brand decisions.
-    Light-mode version: navy #0b1d3a
-  -->
+  <!-- LavinIoT L monogram - navy for light backgrounds -->
   <path
-    fill="#0b1d3a"
+    fill="#0a1628"
     d="M32 15.44
        A6 6 0 0 1 38 21.44
        V69.03
@@ -20,7 +15,7 @@
        Z"
   />
   <path
-    stroke="#0b1d3a"
+    stroke="#0a1628"
     stroke-width="10.94"
     stroke-linecap="round"
     d="M67.63 27.61 L53.85 41.39"

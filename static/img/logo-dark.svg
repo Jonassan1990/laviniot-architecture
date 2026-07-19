@@ -1,9 +1,5 @@
 <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!--
-    LavinIoT canonical mark  L monogram with diagonal accent.
-    Dark-mode / inverted version: white #ffffff
-    Use on dark backgrounds (dark theme headers, OG cards, etc.)
-  -->
+  <!-- LavinIoT L monogram - white for dark backgrounds -->
   <path
     fill="#ffffff"
     d="M32 15.44

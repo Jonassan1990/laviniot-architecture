@@ -62,7 +62,7 @@
 
   /* Navbar — h-14/h-16 from website header */
   --ifm-navbar-height:                 3.5rem;   /* h-14 = 56px */
-  --ifm-navbar-padding-horizontal:     2rem;     /* px-8 */
+  --ifm-navbar-padding-horizontal:     1rem;
   --ifm-navbar-padding-vertical:       0;
   --ifm-navbar-background-color:       var(--li-glass);
   --ifm-navbar-shadow:                 none;
@@ -193,86 +193,142 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(56, 189, 248, 0.25);
 }
 
-/* ─── Navbar — glass effect matching website header (scrolled state) ──────── */
-/* Website: transparent → glass-card on scroll.
-   Docusaurus: sticky, so we always show the glass form for the premium feel. */
+/* ─── Navbar ─────────────────────────────────────────────────────────────── */
+/* Keep Infima mobile mechanics intact. Only skin the bar. */
 
 .navbar {
-  /* glass-card from globals.css: rgba(255,255,255,0.72), blur(16px) */
-  background: rgba(250, 251, 253, 0.85) !important;
+  background: rgba(250, 251, 253, 0.92) !important;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  /* border-b border-border/50 shadow-lg shadow-primary/5 */
   border-bottom: 1px solid rgba(226, 232, 240, 0.5);
-  box-shadow: 0 4px 24px rgba(11, 29, 58, 0.04), 0 1px 0 rgba(226, 232, 240, 0.5);
-  transition: background 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 4px 24px rgba(10, 22, 40, 0.04);
+  z-index: var(--ifm-z-index-fixed);
 }
 
 [data-theme="dark"] .navbar {
-  background: rgba(6, 11, 20, 0.85) !important;
+  background: rgba(5, 9, 16, 0.92) !important;
   border-bottom-color: rgba(255, 255, 255, 0.06);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.04);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
 }
 
-/* Navbar inner container — max-w-7xl from website */
+/* Critical: do NOT wrap on mobile — wrapping was stacking hamburger under title */
 .navbar__inner {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 2rem;
-}
-
-/* Logo brand area */
-.navbar__brand {
-  gap: 0.75rem;
-  margin-right: 0;
+  padding: 0 1rem;
+  flex-wrap: nowrap !important;
   align-items: center;
+  width: 100%;
 }
 
-/* Keep logo always visible on mobile (never collapse mark) */
-.navbar__brand .navbar__logo {
-  display: flex !important;
+@media (min-width: 997px) {
+  .navbar__inner {
+    padding: 0 2rem;
+  }
 }
 
-.navbar__logo {
-  width: 40px;
-  height: 40px;
+.navbar__items {
+  flex-wrap: nowrap;
+  align-items: center;
+  min-width: 0;
+}
+
+.navbar__items--right {
   flex-shrink: 0;
 }
 
+/* Hamburger must stay clickable and above brand text */
+.navbar__toggle {
+  display: none;
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  margin-right: 0.5rem;
+  padding: 0.4rem !important;
+  border: 1px solid rgba(226, 232, 240, 0.55) !important;
+  border-radius: 0.5rem !important;
+  color: var(--li-foreground) !important;
+  background: transparent !important;
+  pointer-events: auto !important;
+}
+
+@media (max-width: 996px) {
+  .navbar__toggle {
+    display: inherit !important;
+  }
+}
+
+[data-theme="dark"] .navbar__toggle {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #f1f5f9 !important;
+}
+
+.navbar__brand {
+  gap: 0.5rem;
+  margin-right: 0.5rem;
+  align-items: center;
+  min-width: 0;
+  flex-shrink: 1;
+}
+
+.navbar__brand .navbar__logo {
+  display: flex !important;
+  flex-shrink: 0;
+}
+
+.navbar__logo {
+  width: 32px;
+  height: 32px;
+}
+
 .navbar__logo img {
-  width: 40px !important;
-  height: 40px !important;
+  width: 32px !important;
+  height: 32px !important;
   object-fit: contain;
 }
 
-/* Navbar title — matches website LogoWordmark: font-display font-semibold tracking-tight */
+@media (min-width: 997px) {
+  .navbar__logo,
+  .navbar__logo img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
 .navbar__title {
   font-family: "Space Grotesk", "IBM Plex Sans", system-ui, sans-serif;
   font-weight: 600;
-  font-size: 1.125rem;    /* approximately text-xl */
-  letter-spacing: -0.02em; /* tracking-tight */
+  font-size: 1rem;
+  letter-spacing: -0.02em;
   color: var(--li-foreground);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (min-width: 997px) {
+  .navbar__title {
+    font-size: 1.125rem;
+  }
 }
 
 [data-theme="dark"] .navbar__title {
   color: #f1f5f9;
 }
 
-/* Nav links — exact from website navLink function:
-   rounded-xl px-2.5 py-2 text-sm font-medium text-muted hover:bg-accent/10 hover:text-accent */
 .navbar__link {
-  border-radius: 0.75rem;    /* rounded-xl */
-  padding: 0.5rem 0.625rem;  /* py-2 px-2.5 */
-  font-size: 0.875rem;       /* text-sm */
-  font-weight: 500;          /* font-medium */
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.625rem;
+  font-size: 0.875rem;
+  font-weight: 500;
   color: var(--li-muted);
-  transition: all 0.15s ease;
+  transition: color 0.15s ease, background 0.15s ease;
   text-decoration: none;
 }
 
 .navbar__link:hover {
   color: var(--li-accent);
-  background: rgba(2, 132, 199, 0.1);  /* bg-accent/10 */
+  background: rgba(2, 132, 199, 0.1);
   text-decoration: none;
 }
 
@@ -286,29 +342,45 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(56, 189, 248, 0.1);
 }
 
-/* Dark mode toggle button — matches website's theme toggle:
-   rounded-xl border border-border/50 p-2.5 text-muted hover:border-accent/30 hover:bg-accent/10 hover:text-accent */
-.navbar__toggle,
-button[class*="colorModeToggle"],
-.clean-btn[class*="toggle"] {
-  border-radius: 0.75rem !important;
+/* Theme toggle only — do not target every .clean-btn with "toggle" in the name */
+button[class*="colorModeToggle"] {
+  border-radius: 0.5rem !important;
   border: 1px solid rgba(226, 232, 240, 0.5) !important;
-  padding: 0.625rem !important;
   color: var(--li-muted) !important;
-  transition: all 0.15s ease !important;
   background: transparent !important;
 }
 
-.navbar__toggle:hover,
-button[class*="colorModeToggle"]:hover {
-  border-color: rgba(2, 132, 199, 0.3) !important;
-  background: rgba(2, 132, 199, 0.1) !important;
-  color: var(--li-accent) !important;
+[data-theme="dark"] button[class*="colorModeToggle"] {
+  border-color: rgba(255, 255, 255, 0.12) !important;
 }
 
-[data-theme="dark"] .navbar__toggle,
-[data-theme="dark"] button[class*="colorModeToggle"] {
-  border-color: rgba(255, 255, 255, 0.08) !important;
+/* Mobile drawer: ensure it sits above page content and works */
+.navbar-sidebar {
+  z-index: calc(var(--ifm-z-index-overlay) + 1) !important;
+  background: var(--li-background) !important;
+}
+
+.navbar-sidebar__backdrop {
+  z-index: var(--ifm-z-index-overlay) !important;
+}
+
+.navbar-sidebar__brand {
+  background: var(--li-background);
+  border-bottom: 1px solid var(--li-border);
+}
+
+.navbar-sidebar__close {
+  display: flex !important;
+  margin-left: auto;
+  padding: 0.5rem;
+  color: var(--li-foreground) !important;
+  pointer-events: auto !important;
+}
+
+.navbar-sidebar--show .navbar-sidebar,
+.navbar-sidebar--show .navbar-sidebar__backdrop {
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 /* ─── Announcement bar — navy, not cyan ─────────────────────────────────── */

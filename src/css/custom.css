@@ -1,21 +1,24 @@
 /**
  * Lavin Book — Custom Theme
  *
- * All design tokens come from the Lavin Design System (brand/tokens.css).
- * This file maps those tokens to Docusaurus IFM variables and adds
- * Lavin-specific component styles.
+ * Color hierarchy (matches www.lavin-iot.com):
+ *   PRIMARY / DOMINANT  — Navy  (#0b1d3a light / #060b14 dark)
+ *   ACCENT / HIGHLIGHT  — Green (#00a86b light / #34d399 dark)
+ *
+ * Green must NEVER appear as a background, navbar, sidebar, or page color.
+ * Green is used exclusively for: CTAs, active states, links, badges,
+ * highlights, icons, success messages, and small decorative accents.
  *
  * Token source: /brand/tokens.css
- * Brand rules: /brand/README.md
  */
 
 /* ─── Google Fonts ─────────────────────────────────────────────────────────── */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap");
 
-/* ─── Lavin Design Tokens ──────────────────────────────────────────────────── */
+/* ─── Design Tokens ─────────────────────────────────────────────────────────── */
 
 :root {
-  /* Brand colors — light mode */
+  /* Lavin brand tokens — light mode */
   --lavin-bg:           #fafbfd;
   --lavin-fg:           #0b1d3a;
   --lavin-muted:        #64748b;
@@ -23,13 +26,15 @@
   --lavin-border:       #e2e8f0;
   --lavin-accent:       #00a86b;
   --lavin-accent-light: #34d399;
-  --lavin-accent-glow:  rgba(0, 168, 107, 0.35);
-  --lavin-primary:      #0b1d3a;
-  --lavin-primary-light:#1e3a5f;
+  --lavin-accent-glow:  rgba(0, 168, 107, 0.3);
+  --lavin-navy:         #0b1d3a;
+  --lavin-navy-light:   #1e3a5f;
+  --lavin-navy-deep:    #060d1a;
   --lavin-glass:        rgba(255, 255, 255, 0.72);
   --lavin-glass-border: rgba(255, 255, 255, 0.5);
 
-  /* Docusaurus IFM overrides — primary = Lavin accent green */
+  /* ── Docusaurus IFM: primary = accent green (links, active, badges) ── */
+  /* Primary is the ACCENT color in IFM — used for links and active states */
   --ifm-color-primary:           #00a86b;
   --ifm-color-primary-dark:      #009961;
   --ifm-color-primary-darker:    #00905b;
@@ -38,7 +43,7 @@
   --ifm-color-primary-lighter:   #00c07c;
   --ifm-color-primary-lightest:  #00d18a;
 
-  /* Typography */
+  /* ── Typography ── */
   --ifm-font-family-base:        "Inter", system-ui, -apple-system, sans-serif;
   --ifm-heading-font-family:     "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
   --ifm-font-size-base:          16px;
@@ -50,86 +55,79 @@
   --ifm-h2-font-size:            1.625rem;
   --ifm-h3-font-size:            1.25rem;
 
-  /* Layout */
+  /* ── Layout ── */
   --ifm-container-width:         1280px;
   --ifm-container-width-xl:      1400px;
   --ifm-navbar-height:           60px;
   --ifm-navbar-padding-horizontal: 1.5rem;
-  --ifm-navbar-shadow:           0 1px 0 var(--lavin-border);
 
-  /* Navbar */
-  --ifm-navbar-background-color: var(--lavin-bg);
+  /* ── Navbar — NAVY/WHITE background, NOT green ── */
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-navbar-shadow:           0 1px 0 var(--lavin-border);
   --ifm-navbar-link-color:       var(--lavin-muted);
   --ifm-navbar-link-hover-color: var(--lavin-accent);
 
-  /* Footer */
-  --ifm-footer-background-color: var(--lavin-primary);
+  /* ── Footer — NAVY background ── */
+  --ifm-footer-background-color: var(--lavin-navy);
   --ifm-footer-color:            #f1f5f9;
   --ifm-footer-link-color:       #94a3b8;
   --ifm-footer-link-hover-color: var(--lavin-accent-light);
   --ifm-footer-title-color:      #ffffff;
   --ifm-footer-padding-vertical: 3rem;
 
-  /* Sidebar */
+  /* ── Sidebar — white/light background, NOT green ── */
   --ifm-sidebar-width:           280px;
-  --ifm-menu-color:              var(--lavin-fg);
+  --ifm-menu-color:              var(--lavin-muted);
   --ifm-menu-color-active:       var(--lavin-accent);
   --ifm-menu-link-padding-horizontal: 0.875rem;
   --ifm-menu-link-padding-vertical:   0.45rem;
 
-  /* Code */
+  /* ── Code ── */
   --ifm-code-font-size:          0.875rem;
   --ifm-code-border-radius:      0.5rem;
   --ifm-code-background:         var(--lavin-surface);
   --docusaurus-highlighted-code-line-bg: rgba(0, 168, 107, 0.08);
 
-  /* Cards / surfaces */
-  --ifm-card-background-color:  var(--lavin-bg);
+  /* ── Cards / surfaces ── */
+  --ifm-card-background-color:  #ffffff;
   --ifm-card-border-radius:     1rem;
 
-  /* Alerts */
+  /* ── Alerts ── */
   --ifm-alert-border-radius:    0.75rem;
   --ifm-alert-border-width:     1px;
 
-  /* Tables */
+  /* ── Tables ── */
   --ifm-table-border-color:     var(--lavin-border);
-  --ifm-table-head-background:  var(--lavin-surface);
-  --ifm-table-stripe-background: rgba(0, 168, 107, 0.03);
+  --ifm-table-head-background:  var(--lavin-navy);
+  --ifm-table-stripe-background: rgba(0, 0, 0, 0.02);
 
-  /* Global background */
-  --ifm-background-color:       var(--lavin-bg);
+  /* ── Page backgrounds — white/light, NOT green ── */
+  --ifm-background-color:         #ffffff;
   --ifm-background-surface-color: var(--lavin-surface);
-  --ifm-color-content:          var(--lavin-fg);
-  --ifm-color-content-secondary: var(--lavin-muted);
+  --ifm-color-content:            var(--lavin-fg);
+  --ifm-color-content-secondary:  var(--lavin-muted);
 
-  /* Borders */
+  /* ── Borders ── */
+  --ifm-color-emphasis-100:     #f8fafc;
   --ifm-color-emphasis-200:     var(--lavin-border);
-  --ifm-color-emphasis-300:     var(--lavin-border);
+  --ifm-color-emphasis-300:     #cbd5e1;
   --ifm-color-emphasis-700:     var(--lavin-muted);
   --ifm-color-emphasis-800:     #475569;
   --ifm-color-emphasis-900:     var(--lavin-fg);
 
-  /* Scrollbar */
-  --ifm-scrollbar-size:         6px;
-  --ifm-scrollbar-track-background-color: var(--lavin-surface);
-  --ifm-scrollbar-thumb-background-color: var(--lavin-border);
-  --ifm-scrollbar-thumb-hover-background-color: var(--lavin-accent);
+  /* ── Link ── */
+  --ifm-link-color:             var(--lavin-accent);
+  --ifm-link-hover-color:       var(--lavin-accent-light);
+  --ifm-link-decoration:        none;
+  --ifm-link-hover-decoration:  underline;
 
-  /* Link */
-  --ifm-link-color:            var(--lavin-accent);
-  --ifm-link-hover-color:      var(--lavin-accent-light);
-  --ifm-link-decoration:       none;
-  --ifm-link-hover-decoration: underline;
-
-  /* Transitions */
-  --ifm-transition-fast:       0.15s ease;
-  --ifm-transition-slow:       0.3s ease;
-
-  /* Global spacing reference */
-  --lavin-section-padding:     5rem 0;
+  /* ── Transitions ── */
+  --ifm-transition-fast:        0.15s ease;
+  --ifm-transition-slow:        0.3s ease;
 }
 
 /* ─── Dark mode ─────────────────────────────────────────────────────────────── */
+
 [data-theme="dark"] {
   --lavin-bg:           #060b14;
   --lavin-fg:           #f1f5f9;
@@ -138,9 +136,9 @@
   --lavin-border:       #1e293b;
   --lavin-accent:       #34d399;
   --lavin-accent-light: #6ee7b7;
-  --lavin-accent-glow:  rgba(52, 211, 153, 0.25);
-  --lavin-primary:      #1e3a5f;
-  --lavin-primary-light:#2d4a6f;
+  --lavin-accent-glow:  rgba(52, 211, 153, 0.2);
+  --lavin-navy:         #1e3a5f;
+  --lavin-navy-light:   #2d4a6f;
   --lavin-glass:        rgba(15, 23, 42, 0.75);
   --lavin-glass-border: rgba(255, 255, 255, 0.08);
 
@@ -152,16 +150,31 @@
   --ifm-color-primary-lighter:   #47dfa7;
   --ifm-color-primary-lightest:  #5ce4b3;
 
-  --ifm-background-color:         var(--lavin-bg);
-  --ifm-background-surface-color: var(--lavin-surface);
-  --ifm-navbar-background-color:  var(--lavin-bg);
-  --ifm-footer-background-color:  #020509;
-  --ifm-color-emphasis-200:       var(--lavin-border);
-  --ifm-color-emphasis-700:       var(--lavin-muted);
-  --ifm-color-emphasis-800:       #94a3b8;
-  --ifm-code-background:          var(--lavin-surface);
-  --ifm-table-head-background:    #0d1b2e;
-  --docusaurus-highlighted-code-line-bg: rgba(52, 211, 153, 0.1);
+  /* ── Navbar — DARK NAVY, not green ── */
+  --ifm-navbar-background-color: #060b14;
+  --ifm-navbar-shadow:           0 1px 0 rgba(255, 255, 255, 0.04);
+
+  /* ── Footer — deep navy ── */
+  --ifm-footer-background-color: #020509;
+
+  /* ── Page backgrounds — dark navy, not green ── */
+  --ifm-background-color:         #060b14;
+  --ifm-background-surface-color: #0f172a;
+
+  /* ── Tables ── */
+  --ifm-table-head-background:  #0d1b2e;
+
+  /* ── Code ── */
+  --ifm-code-background: #0f172a;
+  --docusaurus-highlighted-code-line-bg: rgba(52, 211, 153, 0.08);
+
+  /* ── Borders ── */
+  --ifm-color-emphasis-100:     #0a111e;
+  --ifm-color-emphasis-200:     #1e293b;
+  --ifm-color-emphasis-300:     #334155;
+  --ifm-color-emphasis-700:     #94a3b8;
+  --ifm-color-emphasis-800:     #cbd5e1;
+  --ifm-color-emphasis-900:     #f1f5f9;
 }
 
 /* ─── Base typography ────────────────────────────────────────────────────────── */
@@ -180,14 +193,18 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--lavin-fg);
 }
 
-/* ─── Navbar ──────────────────────────────────────────────────────────────────── */
+/* ─── Navbar — white/navy, never green ─────────────────────────────────────── */
 
 .navbar {
+  background: var(--ifm-navbar-background-color);
   border-bottom: 1px solid var(--lavin-border);
   box-shadow: none;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+[data-theme="dark"] .navbar {
+  border-bottom-color: rgba(255, 255, 255, 0.05);
 }
 
 .navbar__brand {
@@ -202,15 +219,24 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
+[data-theme="dark"] .navbar__title {
+  color: #f1f5f9;
+}
+
 .navbar__link {
   font-size: 0.875rem;
   font-weight: 500;
-  border-radius: 0.625rem;
+  border-radius: 0.5rem;
   padding: 0.375rem 0.625rem;
+  color: var(--lavin-muted);
   transition: background 0.15s ease, color 0.15s ease;
 }
 
-.navbar__link:hover,
+.navbar__link:hover {
+  color: var(--lavin-accent);
+  background: rgba(0, 168, 107, 0.07);
+}
+
 .navbar__link--active {
   color: var(--lavin-accent);
   background: rgba(0, 168, 107, 0.08);
@@ -221,21 +247,20 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(52, 211, 153, 0.1);
 }
 
-/* Navbar logo sizing */
 .navbar__logo {
   width: 32px;
   height: 32px;
 }
 
-/* ─── Announcement bar ────────────────────────────────────────────────────────── */
+/* ─── Announcement bar — navy background ─────────────────────────────────────── */
 
 div[class*="announcementBar"] {
-  background: linear-gradient(90deg, var(--lavin-primary) 0%, var(--lavin-primary-light) 100%);
+  background: var(--lavin-navy, #0b1d3a);
   color: #ffffff;
   font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
   font-weight: 500;
   font-size: 0.85rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 div[class*="announcementBarContent"] a {
@@ -243,11 +268,21 @@ div[class*="announcementBarContent"] a {
   text-decoration: underline;
 }
 
-/* ─── Sidebar ──────────────────────────────────────────────────────────────────── */
+/* ─── Sidebar — white / dark background, green only for active state ────────── */
+
+.theme-doc-sidebar-container {
+  border-right: 1px solid var(--lavin-border) !important;
+}
+
+[data-theme="dark"] .theme-doc-sidebar-container {
+  border-right-color: rgba(255, 255, 255, 0.05) !important;
+  background: var(--lavin-bg);
+}
 
 .menu {
   padding: 0.75rem 0.5rem;
   font-size: 0.875rem;
+  background: transparent;
 }
 
 .menu__link {
@@ -260,60 +295,67 @@ div[class*="announcementBarContent"] a {
 }
 
 .menu__link:hover {
-  color: var(--lavin-accent);
-  background: rgba(0, 168, 107, 0.07);
+  color: var(--lavin-fg);
+  background: rgba(11, 29, 58, 0.05);
 }
 
+[data-theme="dark"] .menu__link:hover {
+  color: #f1f5f9;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Active sidebar link: accent green ONLY here */
 .menu__link--active {
-  color: var(--lavin-accent);
-  background: rgba(0, 168, 107, 0.1);
+  color: var(--lavin-accent) !important;
+  background: rgba(0, 168, 107, 0.08) !important;
   font-weight: 600;
+}
+
+[data-theme="dark"] .menu__link--active {
+  background: rgba(52, 211, 153, 0.1) !important;
 }
 
 .menu__caret:before {
   border-color: var(--lavin-muted);
 }
 
-.menu__list-item-collapsible:hover {
-  background: rgba(0, 168, 107, 0.05);
-}
-
-/* Category headers */
-.menu__list-item--collapsed .menu__link--sublist,
-.menu__link--sublist {
-  font-weight: 600;
+/* Category labels */
+.menu__link--sublist,
+.menu__list-item-collapsible .menu__link--sublist {
+  font-weight: 700;
   font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.775rem;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
   color: var(--lavin-fg);
 }
 
-[data-theme="dark"] .menu__link:hover {
-  background: rgba(52, 211, 153, 0.08);
+[data-theme="dark"] .menu__link--sublist {
+  color: #cbd5e1;
 }
 
-[data-theme="dark"] .menu__link--active {
-  background: rgba(52, 211, 153, 0.12);
-}
-
-/* ─── Docs content ─────────────────────────────────────────────────────────────── */
+/* ─── Doc content area ───────────────────────────────────────────────────────── */
 
 article p {
   color: var(--lavin-fg);
   line-height: 1.75;
 }
 
+[data-theme="dark"] article p {
+  color: #e2e8f0;
+}
+
 article a {
   color: var(--lavin-accent);
   text-underline-offset: 2px;
+  font-weight: 500;
 }
 
 article a:hover {
   color: var(--lavin-accent-light);
 }
 
-/* ─── Tables ────────────────────────────────────────────────────────────────────── */
+/* ─── Tables — navy header ───────────────────────────────────────────────────── */
 
 table {
   border-collapse: collapse;
@@ -325,19 +367,19 @@ table {
 }
 
 table th {
-  background: var(--lavin-primary);
+  background: var(--lavin-navy, #0b1d3a);
   color: #ffffff;
   font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
-  font-weight: 600;
-  font-size: 0.8rem;
+  font-weight: 700;
+  font-size: 0.775rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   padding: 0.75rem 1rem;
   border: none;
 }
 
 [data-theme="dark"] table th {
-  background: var(--lavin-primary-light);
+  background: #0d1b2e;
 }
 
 table td {
@@ -346,15 +388,24 @@ table td {
   color: var(--lavin-fg);
 }
 
+[data-theme="dark"] table td {
+  color: #e2e8f0;
+  border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
 table tr:last-child td {
   border-bottom: none;
 }
 
 table tr:nth-child(even) td {
-  background: rgba(0, 168, 107, 0.025);
+  background: rgba(0, 0, 0, 0.015);
 }
 
-/* ─── Code blocks ──────────────────────────────────────────────────────────────── */
+[data-theme="dark"] table tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* ─── Code blocks ────────────────────────────────────────────────────────────── */
 
 code {
   background: var(--lavin-surface);
@@ -363,12 +414,13 @@ code {
   padding: 0.15em 0.45em;
   font-size: 0.875em;
   color: var(--lavin-accent);
-  font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", ui-monospace, monospace;
+  font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
 }
 
 [data-theme="dark"] code {
-  background: rgba(52, 211, 153, 0.06);
-  border-color: rgba(52, 211, 153, 0.15);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: var(--lavin-accent-light);
 }
 
 .prism-code {
@@ -378,10 +430,10 @@ code {
 }
 
 [data-theme="dark"] .prism-code {
-  border-color: var(--lavin-border) !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
 }
 
-/* ─── Alerts / Admonitions ─────────────────────────────────────────────────────── */
+/* ─── Alerts / Admonitions ───────────────────────────────────────────────────── */
 
 .alert {
   border-radius: 0.75rem;
@@ -390,29 +442,29 @@ code {
 
 .alert--info {
   border-left-color: var(--lavin-accent);
-  background: rgba(0, 168, 107, 0.05);
+  background: rgba(0, 168, 107, 0.04);
+}
+
+[data-theme="dark"] .alert--info {
+  background: rgba(52, 211, 153, 0.05);
 }
 
 .alert--warning {
   border-left-color: #d97706;
-  background: rgba(217, 119, 6, 0.05);
+  background: rgba(217, 119, 6, 0.04);
 }
 
 .alert--danger {
   border-left-color: #dc2626;
-  background: rgba(220, 38, 38, 0.05);
+  background: rgba(220, 38, 38, 0.04);
 }
 
 .alert--success {
   border-left-color: var(--lavin-accent);
-  background: rgba(0, 168, 107, 0.07);
+  background: rgba(0, 168, 107, 0.06);
 }
 
-[data-theme="dark"] .alert--info {
-  background: rgba(52, 211, 153, 0.06);
-}
-
-/* ─── Breadcrumbs ──────────────────────────────────────────────────────────────── */
+/* ─── Breadcrumbs ────────────────────────────────────────────────────────────── */
 
 .breadcrumbs__link {
   color: var(--lavin-muted);
@@ -427,7 +479,11 @@ code {
   color: var(--lavin-fg);
 }
 
-/* ─── Pagination ───────────────────────────────────────────────────────────────── */
+[data-theme="dark"] .breadcrumbs__item--active .breadcrumbs__link {
+  color: #f1f5f9;
+}
+
+/* ─── Pagination ─────────────────────────────────────────────────────────────── */
 
 .pagination-nav__link {
   border: 1px solid var(--lavin-border);
@@ -437,7 +493,7 @@ code {
 
 .pagination-nav__link:hover {
   border-color: var(--lavin-accent);
-  box-shadow: 0 0 0 3px rgba(0, 168, 107, 0.1);
+  box-shadow: 0 0 0 3px rgba(0, 168, 107, 0.08);
 }
 
 .pagination-nav__sublabel {
@@ -450,7 +506,11 @@ code {
   font-weight: 600;
 }
 
-/* ─── TOC (Table of Contents) ─────────────────────────────────────────────────── */
+[data-theme="dark"] .pagination-nav__label {
+  color: #f1f5f9;
+}
+
+/* ─── TOC ────────────────────────────────────────────────────────────────────── */
 
 .table-of-contents__link {
   font-size: 0.8rem;
@@ -463,24 +523,10 @@ code {
   color: var(--lavin-accent);
 }
 
-/* ─── Search ───────────────────────────────────────────────────────────────────── */
-
-.DocSearch-Button {
-  border-radius: 0.625rem !important;
-  border: 1px solid var(--lavin-border) !important;
-  background: var(--lavin-surface) !important;
-  transition: border-color 0.2s ease !important;
-}
-
-.DocSearch-Button:hover {
-  border-color: var(--lavin-accent) !important;
-  box-shadow: 0 0 0 2px rgba(0, 168, 107, 0.15) !important;
-}
-
-/* ─── Footer ────────────────────────────────────────────────────────────────────── */
+/* ─── Footer — navy background ───────────────────────────────────────────────── */
 
 .footer {
-  background: var(--lavin-primary);
+  background: #0b1d3a;
   color: #f1f5f9;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
@@ -493,9 +539,9 @@ code {
 .footer__title {
   font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
   font-weight: 700;
-  font-size: 0.8rem;
+  font-size: 0.775rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   color: #ffffff;
   margin-bottom: 1rem;
 }
@@ -511,14 +557,14 @@ code {
 }
 
 .footer__copyright {
-  color: #64748b;
+  color: #475569;
   font-size: 0.8rem;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   padding-top: 1.5rem;
   margin-top: 3rem;
 }
 
-/* ─── Mermaid diagrams ─────────────────────────────────────────────────────────── */
+/* ─── Mermaid ────────────────────────────────────────────────────────────────── */
 
 .mermaid {
   text-align: center;
@@ -529,13 +575,13 @@ code {
   border-radius: 1rem;
 }
 
-/* ─── Lavin-specific components ────────────────────────────────────────────────── */
+/* ─── Lavin-specific components ──────────────────────────────────────────────── */
 
-/* ADR status badges */
+/* ADR status badges — green = accepted, amber = proposed, grey = deprecated */
 .badge-accepted {
   display: inline-flex;
   align-items: center;
-  background: linear-gradient(135deg, var(--lavin-accent) 0%, #00c896 100%);
+  background: linear-gradient(135deg, #00a86b, #00c896);
   color: white;
   border-radius: 999px;
   padding: 2px 10px;
@@ -544,13 +590,12 @@ code {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   vertical-align: middle;
-  box-shadow: 0 0 12px -2px var(--lavin-accent-glow);
 }
 
 .badge-proposed {
   display: inline-flex;
   align-items: center;
-  background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+  background: linear-gradient(135deg, #d97706, #f59e0b);
   color: white;
   border-radius: 999px;
   padding: 2px 10px;
@@ -575,18 +620,18 @@ code {
   vertical-align: middle;
 }
 
-/* Section meta label */
+/* Section meta label — small accent label above headings */
 .section-meta {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   color: var(--lavin-accent);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   margin-bottom: 0.375rem;
   display: block;
 }
 
-/* Principle cards (Engineering Principles page) */
+/* Principle cards */
 .principle-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -598,10 +643,15 @@ code {
   border: 1px solid var(--lavin-border);
   border-radius: 1rem;
   padding: 1.5rem;
-  background: var(--lavin-bg);
+  background: #ffffff;
   transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
   position: relative;
   overflow: hidden;
+}
+
+[data-theme="dark"] .principle-card {
+  background: var(--lavin-surface);
+  border-color: var(--lavin-border);
 }
 
 .principle-card::before {
@@ -617,13 +667,17 @@ code {
 }
 
 .principle-card:hover {
-  border-color: rgba(0, 168, 107, 0.3);
-  box-shadow: 0 8px 24px -8px rgba(0, 168, 107, 0.15);
+  border-color: rgba(0, 168, 107, 0.35);
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.08);
   transform: translateY(-2px);
 }
 
 .principle-card:hover::before {
   opacity: 1;
+}
+
+[data-theme="dark"] .principle-card:hover {
+  border-color: rgba(52, 211, 153, 0.3);
 }
 
 .principle-card h3 {
@@ -634,6 +688,10 @@ code {
   font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
 }
 
+[data-theme="dark"] .principle-card h3 {
+  color: #f1f5f9;
+}
+
 .principle-card p {
   font-size: 0.875rem;
   color: var(--lavin-muted);
@@ -641,52 +699,22 @@ code {
   line-height: 1.6;
 }
 
-[data-theme="dark"] .principle-card {
-  background: var(--lavin-surface);
-  border-color: var(--lavin-border);
-}
+/* ─── Scrollbar ──────────────────────────────────────────────────────────────── */
 
-[data-theme="dark"] .principle-card:hover {
-  border-color: rgba(52, 211, 153, 0.3);
-  box-shadow: 0 8px 24px -8px rgba(52, 211, 153, 0.15);
-}
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--lavin-border); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 
-/* ─── Scrollbar ─────────────────────────────────────────────────────────────────── */
+/* ─── Selection ──────────────────────────────────────────────────────────────── */
 
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
+::selection { background: rgba(0, 168, 107, 0.15); }
+[data-theme="dark"] ::selection { background: rgba(52, 211, 153, 0.15); }
 
-::-webkit-scrollbar-track {
-  background: var(--lavin-surface);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--lavin-border);
-  border-radius: 999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--lavin-accent);
-}
-
-/* ─── Selection ─────────────────────────────────────────────────────────────────── */
-
-::selection {
-  background: rgba(0, 168, 107, 0.2);
-}
-
-[data-theme="dark"] ::selection {
-  background: rgba(52, 211, 153, 0.2);
-}
-
-/* ─── Reduced motion ─────────────────────────────────────────────────────────────── */
+/* ─── Reduced motion ─────────────────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

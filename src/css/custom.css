@@ -1,40 +1,41 @@
 /**
- * Lavin Book — Custom Theme
+ * Lavin Book — Docusaurus Theme
  *
- * Color hierarchy (matches www.lavin-iot.com):
- *   PRIMARY / DOMINANT  — Navy  (#0b1d3a light / #060b14 dark)
- *   ACCENT / HIGHLIGHT  — Green (#00a86b light / #34d399 dark)
+ * Source of truth: www.lavin-iot.com
+ * Token source:    packages/lavin-design-system/tokens.css
  *
- * Green must NEVER appear as a background, navbar, sidebar, or page color.
- * Green is used exclusively for: CTAs, active states, links, badges,
- * highlights, icons, success messages, and small decorative accents.
+ * Every value in this file is derived from the website's source code.
+ * No value is invented here.
  *
- * Token source: /brand/tokens.css
+ * Color hierarchy (FROZEN):
+ *   DOMINANT  — Navy  #0b1d3a / #060b14 dark
+ *   ACCENT    — Green #00a86b / #34d399 dark (CTAs, active, highlights ONLY)
  */
 
-/* ─── Google Fonts ─────────────────────────────────────────────────────────── */
+/* ─── Fonts (same as website layout.tsx) ─────────────────────────────────── */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap");
 
-/* ─── Design Tokens ─────────────────────────────────────────────────────────── */
+/* ─── Design tokens (exact from packages/lavin-design-system/tokens.css) ─── */
 
 :root {
-  /* Lavin brand tokens — light mode */
-  --lavin-bg:           #fafbfd;
-  --lavin-fg:           #0b1d3a;
-  --lavin-muted:        #64748b;
-  --lavin-surface:      #f1f5f9;
-  --lavin-border:       #e2e8f0;
-  --lavin-accent:       #00a86b;
-  --lavin-accent-light: #34d399;
-  --lavin-accent-glow:  rgba(0, 168, 107, 0.3);
-  --lavin-navy:         #0b1d3a;
-  --lavin-navy-light:   #1e3a5f;
-  --lavin-navy-deep:    #060d1a;
-  --lavin-glass:        rgba(255, 255, 255, 0.72);
-  --lavin-glass-border: rgba(255, 255, 255, 0.5);
+  /* Colors — exact from globals.css */
+  --li-background:    #fafbfd;
+  --li-surface:       #f1f5f9;
+  --li-foreground:    #0b1d3a;
+  --li-muted:         #64748b;
+  --li-border:        #e2e8f0;
+  --li-primary:       #0b1d3a;
+  --li-primary-light: #1e3a5f;
+  --li-accent:        #00a86b;
+  --li-accent-end:    #00c896;
+  --li-accent-light:  #34d399;
+  --li-accent-glow:   rgba(0, 168, 107, 0.35);
+  --li-glass:         rgba(255, 255, 255, 0.72);
+  --li-glass-border:  rgba(255, 255, 255, 0.5);
 
-  /* ── Docusaurus IFM: primary = accent green (links, active, badges) ── */
-  /* Primary is the ACCENT color in IFM — used for links and active states */
+  /* ── IFM overrides — mapping tokens to Docusaurus variables ── */
+
+  /* Primary = accent green (used for links, active sidebar, breadcrumbs) */
   --ifm-color-primary:           #00a86b;
   --ifm-color-primary-dark:      #009961;
   --ifm-color-primary-darker:    #00905b;
@@ -43,104 +44,106 @@
   --ifm-color-primary-lighter:   #00c07c;
   --ifm-color-primary-lightest:  #00d18a;
 
-  /* ── Typography ── */
-  --ifm-font-family-base:        "Inter", system-ui, -apple-system, sans-serif;
-  --ifm-heading-font-family:     "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
-  --ifm-font-size-base:          16px;
-  --ifm-line-height-base:        1.65;
-  --ifm-font-weight-bold:        600;
-  --ifm-heading-font-weight:     700;
-  --ifm-heading-line-height:     1.25;
-  --ifm-h1-font-size:            2.25rem;
-  --ifm-h2-font-size:            1.625rem;
-  --ifm-h3-font-size:            1.25rem;
+  /* Typography — exact from layout.tsx */
+  --ifm-font-family-base:     "Inter", system-ui, -apple-system, sans-serif;
+  --ifm-heading-font-family:  "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  --ifm-font-size-base:       16px;
+  --ifm-line-height-base:     1.65;
+  --ifm-font-weight-bold:     600;
+  --ifm-heading-font-weight:  700;
+  --ifm-heading-line-height:  1.25;
+  --ifm-h1-font-size:         2.25rem;
+  --ifm-h2-font-size:         1.625rem;
+  --ifm-h3-font-size:         1.25rem;
 
-  /* ── Layout ── */
-  --ifm-container-width:         1280px;
-  --ifm-container-width-xl:      1400px;
-  --ifm-navbar-height:           60px;
-  --ifm-navbar-padding-horizontal: 1.5rem;
+  /* Layout */
+  --ifm-container-width:    1280px;  /* max-w-7xl */
+  --ifm-container-width-xl: 1400px;
 
-  /* ── Navbar — NAVY/WHITE background, NOT green ── */
-  --ifm-navbar-background-color: #ffffff;
-  --ifm-navbar-shadow:           0 1px 0 var(--lavin-border);
-  --ifm-navbar-link-color:       var(--lavin-muted);
-  --ifm-navbar-link-hover-color: var(--lavin-accent);
+  /* Navbar — h-14/h-16 from website header */
+  --ifm-navbar-height:                 3.5rem;   /* h-14 = 56px */
+  --ifm-navbar-padding-horizontal:     2rem;     /* px-8 */
+  --ifm-navbar-padding-vertical:       0;
+  --ifm-navbar-background-color:       var(--li-glass);
+  --ifm-navbar-shadow:                 none;
+  --ifm-navbar-link-color:             var(--li-muted);
+  --ifm-navbar-link-hover-color:       var(--li-accent);
+  --ifm-navbar-link-active-color:      var(--li-accent);
 
-  /* ── Footer — NAVY background ── */
-  --ifm-footer-background-color: var(--lavin-navy);
+  /* Sidebar */
+  --ifm-sidebar-width:                 272px;
+  --ifm-menu-color:                    var(--li-muted);
+  --ifm-menu-color-active:             var(--li-accent);
+  --ifm-menu-link-padding-horizontal:  0.75rem;
+  --ifm-menu-link-padding-vertical:    0.375rem;
+
+  /* Code */
+  --ifm-code-font-size:                0.875rem;
+  --ifm-code-border-radius:            0.375rem;  /* rounded */
+  --ifm-code-background:               var(--li-surface);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 168, 107, 0.08);
+
+  /* Alerts */
+  --ifm-alert-border-radius:   0.75rem;
+  --ifm-alert-border-width:    1px;
+
+  /* Tables */
+  --ifm-table-border-color:    var(--li-border);
+  --ifm-table-head-background: var(--li-primary);
+
+  /* Backgrounds */
+  --ifm-background-color:         var(--li-background);
+  --ifm-background-surface-color: var(--li-surface);
+  --ifm-color-content:            var(--li-foreground);
+  --ifm-color-content-secondary:  var(--li-muted);
+
+  /* Borders */
+  --ifm-color-emphasis-100:  #f8fafc;
+  --ifm-color-emphasis-200:  var(--li-border);
+  --ifm-color-emphasis-300:  #cbd5e1;
+  --ifm-color-emphasis-700:  var(--li-muted);
+  --ifm-color-emphasis-800:  #475569;
+  --ifm-color-emphasis-900:  var(--li-foreground);
+
+  /* Links */
+  --ifm-link-color:           var(--li-accent);
+  --ifm-link-hover-color:     var(--li-accent-light);
+  --ifm-link-decoration:      none;
+  --ifm-link-hover-decoration:underline;
+
+  /* Footer */
+  --ifm-footer-background-color: var(--li-primary);
   --ifm-footer-color:            #f1f5f9;
   --ifm-footer-link-color:       #94a3b8;
-  --ifm-footer-link-hover-color: var(--lavin-accent-light);
+  --ifm-footer-link-hover-color: var(--li-accent-light);
   --ifm-footer-title-color:      #ffffff;
   --ifm-footer-padding-vertical: 3rem;
 
-  /* ── Sidebar — white/light background, NOT green ── */
-  --ifm-sidebar-width:           280px;
-  --ifm-menu-color:              var(--lavin-muted);
-  --ifm-menu-color-active:       var(--lavin-accent);
-  --ifm-menu-link-padding-horizontal: 0.875rem;
-  --ifm-menu-link-padding-vertical:   0.45rem;
+  /* Card */
+  --ifm-card-background-color: var(--li-background);
+  --ifm-card-border-radius:    1rem;
 
-  /* ── Code ── */
-  --ifm-code-font-size:          0.875rem;
-  --ifm-code-border-radius:      0.5rem;
-  --ifm-code-background:         var(--lavin-surface);
-  --docusaurus-highlighted-code-line-bg: rgba(0, 168, 107, 0.08);
-
-  /* ── Cards / surfaces ── */
-  --ifm-card-background-color:  #ffffff;
-  --ifm-card-border-radius:     1rem;
-
-  /* ── Alerts ── */
-  --ifm-alert-border-radius:    0.75rem;
-  --ifm-alert-border-width:     1px;
-
-  /* ── Tables ── */
-  --ifm-table-border-color:     var(--lavin-border);
-  --ifm-table-head-background:  var(--lavin-navy);
-  --ifm-table-stripe-background: rgba(0, 0, 0, 0.02);
-
-  /* ── Page backgrounds — white/light, NOT green ── */
-  --ifm-background-color:         #ffffff;
-  --ifm-background-surface-color: var(--lavin-surface);
-  --ifm-color-content:            var(--lavin-fg);
-  --ifm-color-content-secondary:  var(--lavin-muted);
-
-  /* ── Borders ── */
-  --ifm-color-emphasis-100:     #f8fafc;
-  --ifm-color-emphasis-200:     var(--lavin-border);
-  --ifm-color-emphasis-300:     #cbd5e1;
-  --ifm-color-emphasis-700:     var(--lavin-muted);
-  --ifm-color-emphasis-800:     #475569;
-  --ifm-color-emphasis-900:     var(--lavin-fg);
-
-  /* ── Link ── */
-  --ifm-link-color:             var(--lavin-accent);
-  --ifm-link-hover-color:       var(--lavin-accent-light);
-  --ifm-link-decoration:        none;
-  --ifm-link-hover-decoration:  underline;
-
-  /* ── Transitions ── */
-  --ifm-transition-fast:        0.15s ease;
-  --ifm-transition-slow:        0.3s ease;
+  /* Transitions */
+  --ifm-transition-fast: 0.15s ease;
+  --ifm-transition-slow: 0.3s ease;
 }
 
-/* ─── Dark mode ─────────────────────────────────────────────────────────────── */
+/* ─── Dark mode ──────────────────────────────────────────────────────────── */
 
 [data-theme="dark"] {
-  --lavin-bg:           #060b14;
-  --lavin-fg:           #f1f5f9;
-  --lavin-muted:        #94a3b8;
-  --lavin-surface:      #0f172a;
-  --lavin-border:       #1e293b;
-  --lavin-accent:       #34d399;
-  --lavin-accent-light: #6ee7b7;
-  --lavin-accent-glow:  rgba(52, 211, 153, 0.2);
-  --lavin-navy:         #1e3a5f;
-  --lavin-navy-light:   #2d4a6f;
-  --lavin-glass:        rgba(15, 23, 42, 0.75);
-  --lavin-glass-border: rgba(255, 255, 255, 0.08);
+  --li-background:    #060b14;
+  --li-surface:       #0f172a;
+  --li-foreground:    #f1f5f9;
+  --li-muted:         #94a3b8;
+  --li-border:        #1e293b;
+  --li-primary:       #1e3a5f;
+  --li-primary-light: #2d4a6f;
+  --li-accent:        #34d399;
+  --li-accent-end:    #6ee7b7;
+  --li-accent-light:  #6ee7b7;
+  --li-accent-glow:   rgba(52, 211, 153, 0.25);
+  --li-glass:         rgba(6, 11, 20, 0.85);
+  --li-glass-border:  rgba(255, 255, 255, 0.08);
 
   --ifm-color-primary:           #34d399;
   --ifm-color-primary-dark:      #2dc98b;
@@ -150,34 +153,18 @@
   --ifm-color-primary-lighter:   #47dfa7;
   --ifm-color-primary-lightest:  #5ce4b3;
 
-  /* ── Navbar — DARK NAVY, not green ── */
-  --ifm-navbar-background-color: #060b14;
-  --ifm-navbar-shadow:           0 1px 0 rgba(255, 255, 255, 0.04);
-
-  /* ── Footer — deep navy ── */
-  --ifm-footer-background-color: #020509;
-
-  /* ── Page backgrounds — dark navy, not green ── */
   --ifm-background-color:         #060b14;
   --ifm-background-surface-color: #0f172a;
-
-  /* ── Tables ── */
-  --ifm-table-head-background:  #0d1b2e;
-
-  /* ── Code ── */
-  --ifm-code-background: #0f172a;
+  --ifm-navbar-background-color:  rgba(6, 11, 20, 0.85);
+  --ifm-footer-background-color:  #020509;
+  --ifm-table-head-background:    #0d1b2e;
+  --ifm-code-background:          #0f172a;
+  --ifm-color-emphasis-200:       #1e293b;
+  --ifm-color-emphasis-700:       #94a3b8;
   --docusaurus-highlighted-code-line-bg: rgba(52, 211, 153, 0.08);
-
-  /* ── Borders ── */
-  --ifm-color-emphasis-100:     #0a111e;
-  --ifm-color-emphasis-200:     #1e293b;
-  --ifm-color-emphasis-300:     #334155;
-  --ifm-color-emphasis-700:     #94a3b8;
-  --ifm-color-emphasis-800:     #cbd5e1;
-  --ifm-color-emphasis-900:     #f1f5f9;
 }
 
-/* ─── Base typography ────────────────────────────────────────────────────────── */
+/* ─── Base ───────────────────────────────────────────────────────────────── */
 
 html {
   scroll-behavior: smooth;
@@ -187,59 +174,98 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  background: var(--li-background);
+  color: var(--li-foreground);
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
   letter-spacing: -0.02em;
-  color: var(--lavin-fg);
 }
 
-/* ─── Navbar — white/navy, never green ─────────────────────────────────────── */
+::selection {
+  /* from globals.css: color-mix(in srgb, var(--accent) 30%, transparent) */
+  background: rgba(0, 168, 107, 0.3);
+}
+
+[data-theme="dark"] ::selection {
+  background: rgba(52, 211, 153, 0.25);
+}
+
+/* ─── Navbar — glass effect matching website header (scrolled state) ──────── */
+/* Website: transparent → glass-card on scroll.
+   Docusaurus: sticky, so we always show the glass form for the premium feel. */
 
 .navbar {
-  background: var(--ifm-navbar-background-color);
-  border-bottom: 1px solid var(--lavin-border);
-  box-shadow: none;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  /* glass-card from globals.css: rgba(255,255,255,0.72), blur(16px) */
+  background: rgba(250, 251, 253, 0.85) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  /* border-b border-border/50 shadow-lg shadow-primary/5 */
+  border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+  box-shadow: 0 4px 24px rgba(11, 29, 58, 0.04), 0 1px 0 rgba(226, 232, 240, 0.5);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 [data-theme="dark"] .navbar {
-  border-bottom-color: rgba(255, 255, 255, 0.05);
+  background: rgba(6, 11, 20, 0.85) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
+/* Navbar inner container — max-w-7xl from website */
+.navbar__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Logo brand area */
 .navbar__brand {
-  gap: 0.625rem;
+  gap: 0.625rem;  /* gap-2.5 from website Logo component */
+  margin-right: 0;
 }
 
+.navbar__logo {
+  width: 36px;
+  height: 36px;
+}
+
+/* Navbar title — matches website LogoWordmark: font-display font-semibold tracking-tight */
 .navbar__title {
   font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
-  font-weight: 700;
-  font-size: 1.05rem;
-  color: var(--lavin-fg);
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  font-size: 1.125rem;    /* approximately text-xl */
+  letter-spacing: -0.02em; /* tracking-tight */
+  color: var(--li-foreground);
 }
 
 [data-theme="dark"] .navbar__title {
   color: #f1f5f9;
 }
 
+/* Nav links — exact from website navLink function:
+   rounded-xl px-2.5 py-2 text-sm font-medium text-muted hover:bg-accent/10 hover:text-accent */
 .navbar__link {
-  font-size: 0.875rem;
-  font-weight: 500;
-  border-radius: 0.5rem;
-  padding: 0.375rem 0.625rem;
-  color: var(--lavin-muted);
-  transition: background 0.15s ease, color 0.15s ease;
+  border-radius: 0.75rem;    /* rounded-xl */
+  padding: 0.5rem 0.625rem;  /* py-2 px-2.5 */
+  font-size: 0.875rem;       /* text-sm */
+  font-weight: 500;          /* font-medium */
+  color: var(--li-muted);
+  transition: all 0.15s ease;
+  text-decoration: none;
 }
 
 .navbar__link:hover {
-  color: var(--lavin-accent);
-  background: rgba(0, 168, 107, 0.07);
+  color: var(--li-accent);
+  background: rgba(0, 168, 107, 0.1);  /* bg-accent/10 */
+  text-decoration: none;
 }
 
 .navbar__link--active {
-  color: var(--lavin-accent);
-  background: rgba(0, 168, 107, 0.08);
+  color: var(--li-accent);
+  background: rgba(0, 168, 107, 0.1);
 }
 
 [data-theme="dark"] .navbar__link:hover,
@@ -247,15 +273,35 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(52, 211, 153, 0.1);
 }
 
-.navbar__logo {
-  width: 32px;
-  height: 32px;
+/* Dark mode toggle button — matches website's theme toggle:
+   rounded-xl border border-border/50 p-2.5 text-muted hover:border-accent/30 hover:bg-accent/10 hover:text-accent */
+.navbar__toggle,
+button[class*="colorModeToggle"],
+.clean-btn[class*="toggle"] {
+  border-radius: 0.75rem !important;
+  border: 1px solid rgba(226, 232, 240, 0.5) !important;
+  padding: 0.625rem !important;
+  color: var(--li-muted) !important;
+  transition: all 0.15s ease !important;
+  background: transparent !important;
 }
 
-/* ─── Announcement bar — navy background ─────────────────────────────────────── */
+.navbar__toggle:hover,
+button[class*="colorModeToggle"]:hover {
+  border-color: rgba(0, 168, 107, 0.3) !important;
+  background: rgba(0, 168, 107, 0.1) !important;
+  color: var(--li-accent) !important;
+}
+
+[data-theme="dark"] .navbar__toggle,
+[data-theme="dark"] button[class*="colorModeToggle"] {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ─── Announcement bar — navy, not green ─────────────────────────────────── */
 
 div[class*="announcementBar"] {
-  background: var(--lavin-navy, #0b1d3a);
+  background: #0b1d3a;
   color: #ffffff;
   font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
   font-weight: 500;
@@ -264,39 +310,56 @@ div[class*="announcementBar"] {
 }
 
 div[class*="announcementBarContent"] a {
-  color: var(--lavin-accent-light);
+  color: var(--li-accent-light);
   text-decoration: underline;
 }
 
-/* ─── Sidebar — white / dark background, green only for active state ────────── */
+/* ─── Sidebar — clean, minimal, no Docusaurus chrome ────────────────────── */
 
 .theme-doc-sidebar-container {
-  border-right: 1px solid var(--lavin-border) !important;
+  border-right: 1px solid var(--li-border) !important;
 }
 
 [data-theme="dark"] .theme-doc-sidebar-container {
   border-right-color: rgba(255, 255, 255, 0.05) !important;
-  background: var(--lavin-bg);
 }
 
 .menu {
-  padding: 0.75rem 0.5rem;
+  padding: 1rem 0.5rem;
   font-size: 0.875rem;
   background: transparent;
 }
 
+/* Sidebar category labels — uppercase, navy, Plus Jakarta Sans */
+.menu__link--sublist,
+.menu__list-item-collapsible .menu__link--sublist {
+  font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.725rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--li-foreground);
+  padding: 0.5rem 0.75rem 0.25rem;
+}
+
+[data-theme="dark"] .menu__link--sublist {
+  color: #94a3b8;
+}
+
+/* Sidebar links — muted, hover gets slight navy bg (not green bg) */
 .menu__link {
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;    /* rounded-xl from website */
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--lavin-muted);
-  transition: background 0.15s ease, color 0.15s ease;
-  padding: 0.4rem 0.75rem;
+  color: var(--li-muted);
+  transition: all 0.15s ease;
+  padding: 0.375rem 0.75rem;
 }
 
 .menu__link:hover {
-  color: var(--lavin-fg);
+  color: var(--li-foreground);
   background: rgba(11, 29, 58, 0.05);
+  text-decoration: none;
 }
 
 [data-theme="dark"] .menu__link:hover {
@@ -304,9 +367,9 @@ div[class*="announcementBarContent"] a {
   background: rgba(255, 255, 255, 0.05);
 }
 
-/* Active sidebar link: accent green ONLY here */
+/* Active link: green accent ONLY here */
 .menu__link--active {
-  color: var(--lavin-accent) !important;
+  color: var(--li-accent) !important;
   background: rgba(0, 168, 107, 0.08) !important;
   font-weight: 600;
 }
@@ -315,30 +378,11 @@ div[class*="announcementBarContent"] a {
   background: rgba(52, 211, 153, 0.1) !important;
 }
 
-.menu__caret:before {
-  border-color: var(--lavin-muted);
-}
-
-/* Category labels */
-.menu__link--sublist,
-.menu__list-item-collapsible .menu__link--sublist {
-  font-weight: 700;
-  font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
-  font-size: 0.775rem;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: var(--lavin-fg);
-}
-
-[data-theme="dark"] .menu__link--sublist {
-  color: #cbd5e1;
-}
-
-/* ─── Doc content area ───────────────────────────────────────────────────────── */
+/* ─── Doc content ────────────────────────────────────────────────────────── */
 
 article p {
-  color: var(--lavin-fg);
   line-height: 1.75;
+  color: var(--li-foreground);
 }
 
 [data-theme="dark"] article p {
@@ -346,16 +390,16 @@ article p {
 }
 
 article a {
-  color: var(--lavin-accent);
-  text-underline-offset: 2px;
+  color: var(--li-accent);
   font-weight: 500;
+  text-underline-offset: 2px;
 }
 
 article a:hover {
-  color: var(--lavin-accent-light);
+  color: var(--li-accent-light);
 }
 
-/* ─── Tables — navy header ───────────────────────────────────────────────────── */
+/* ─── Tables — navy header (matches website's navy card headers) ─────────── */
 
 table {
   border-collapse: collapse;
@@ -363,17 +407,17 @@ table {
   font-size: 0.9rem;
   border-radius: 0.75rem;
   overflow: hidden;
-  border: 1px solid var(--lavin-border);
+  border: 1px solid var(--li-border);
 }
 
 table th {
-  background: var(--lavin-navy, #0b1d3a);
+  background: #0b1d3a;     /* --li-primary */
   color: #ffffff;
   font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
   font-weight: 700;
-  font-size: 0.775rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
   padding: 0.75rem 1rem;
   border: none;
 }
@@ -384,8 +428,8 @@ table th {
 
 table td {
   padding: 0.7rem 1rem;
-  border-bottom: 1px solid var(--lavin-border);
-  color: var(--lavin-fg);
+  border-bottom: 1px solid var(--li-border);
+  color: var(--li-foreground);
 }
 
 [data-theme="dark"] table td {
@@ -393,139 +437,104 @@ table td {
   border-bottom-color: rgba(255, 255, 255, 0.05);
 }
 
-table tr:last-child td {
-  border-bottom: none;
-}
+table tr:last-child td { border-bottom: none; }
+table tr:nth-child(even) td { background: rgba(0, 0, 0, 0.015); }
+[data-theme="dark"] table tr:nth-child(even) td { background: rgba(255, 255, 255, 0.02); }
 
-table tr:nth-child(even) td {
-  background: rgba(0, 0, 0, 0.015);
-}
-
-[data-theme="dark"] table tr:nth-child(even) td {
-  background: rgba(255, 255, 255, 0.02);
-}
-
-/* ─── Code blocks ────────────────────────────────────────────────────────────── */
+/* ─── Code — exact from globals.css accent style ─────────────────────────── */
 
 code {
-  background: var(--lavin-surface);
-  border: 1px solid var(--lavin-border);
+  /* inline code: accent colored, surface background */
+  background: var(--li-surface);
+  border: 1px solid var(--li-border);
   border-radius: 0.375rem;
   padding: 0.15em 0.45em;
   font-size: 0.875em;
-  color: var(--lavin-accent);
+  color: var(--li-accent);
   font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
 }
 
 [data-theme="dark"] code {
   background: rgba(255, 255, 255, 0.04);
   border-color: rgba(255, 255, 255, 0.08);
-  color: var(--lavin-accent-light);
+  color: var(--li-accent-light);
 }
 
+/* Code blocks */
 .prism-code {
   border-radius: 0.75rem !important;
-  border: 1px solid var(--lavin-border) !important;
+  border: 1px solid var(--li-border) !important;
   font-size: 0.875rem !important;
+  font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace !important;
 }
 
 [data-theme="dark"] .prism-code {
   border-color: rgba(255, 255, 255, 0.06) !important;
 }
 
-/* ─── Alerts / Admonitions ───────────────────────────────────────────────────── */
+/* ─── Alerts — left border accent, no heavy background ───────────────────── */
 
 .alert {
   border-radius: 0.75rem;
   border-left-width: 3px;
+  font-size: 0.9rem;
 }
 
-.alert--info {
-  border-left-color: var(--lavin-accent);
-  background: rgba(0, 168, 107, 0.04);
-}
+.alert--info    { border-left-color: var(--li-accent); background: rgba(0, 168, 107, 0.04); }
+.alert--success { border-left-color: var(--li-accent); background: rgba(0, 168, 107, 0.06); }
+.alert--warning { border-left-color: #d97706;          background: rgba(217, 119, 6, 0.04); }
+.alert--danger  { border-left-color: #dc2626;          background: rgba(220, 38, 38, 0.04); }
 
-[data-theme="dark"] .alert--info {
+[data-theme="dark"] .alert--info, [data-theme="dark"] .alert--success {
   background: rgba(52, 211, 153, 0.05);
 }
 
-.alert--warning {
-  border-left-color: #d97706;
-  background: rgba(217, 119, 6, 0.04);
-}
+/* ─── Breadcrumbs ────────────────────────────────────────────────────────── */
 
-.alert--danger {
-  border-left-color: #dc2626;
-  background: rgba(220, 38, 38, 0.04);
-}
+.breadcrumbs__link { color: var(--li-muted); font-size: 0.8rem; }
+.breadcrumbs__link:hover { color: var(--li-accent); }
+.breadcrumbs__item--active .breadcrumbs__link { color: var(--li-foreground); }
 
-.alert--success {
-  border-left-color: var(--lavin-accent);
-  background: rgba(0, 168, 107, 0.06);
-}
+[data-theme="dark"] .breadcrumbs__item--active .breadcrumbs__link { color: #f1f5f9; }
 
-/* ─── Breadcrumbs ────────────────────────────────────────────────────────────── */
-
-.breadcrumbs__link {
-  color: var(--lavin-muted);
-  font-size: 0.8rem;
-}
-
-.breadcrumbs__link:hover {
-  color: var(--lavin-accent);
-}
-
-.breadcrumbs__item--active .breadcrumbs__link {
-  color: var(--lavin-fg);
-}
-
-[data-theme="dark"] .breadcrumbs__item--active .breadcrumbs__link {
-  color: #f1f5f9;
-}
-
-/* ─── Pagination ─────────────────────────────────────────────────────────────── */
+/* ─── Pagination — outline style matching website Button variant="outline" ── */
 
 .pagination-nav__link {
-  border: 1px solid var(--lavin-border);
+  border: 1px solid rgba(226, 232, 240, 0.8);
   border-radius: 0.75rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: rgba(250, 251, 253, 0.5);
+  backdrop-filter: blur(4px);
+  transition: all 0.15s ease;
 }
 
 .pagination-nav__link:hover {
-  border-color: var(--lavin-accent);
-  box-shadow: 0 0 0 3px rgba(0, 168, 107, 0.08);
+  border-color: var(--li-accent);
+  background: rgba(0, 168, 107, 0.05);
+  color: var(--li-accent);
+  box-shadow: none;
 }
 
-.pagination-nav__sublabel {
-  font-size: 0.75rem;
-  color: var(--lavin-muted);
+.pagination-nav__label { color: var(--li-foreground); font-weight: 600; }
+.pagination-nav__sublabel { font-size: 0.75rem; color: var(--li-muted); }
+
+[data-theme="dark"] .pagination-nav__link {
+  border-color: rgba(30, 41, 59, 0.8);
+  background: rgba(15, 23, 42, 0.5);
 }
 
-.pagination-nav__label {
-  color: var(--lavin-fg);
-  font-weight: 600;
-}
+[data-theme="dark"] .pagination-nav__label { color: #f1f5f9; }
 
-[data-theme="dark"] .pagination-nav__label {
-  color: #f1f5f9;
-}
+/* ─── TOC ────────────────────────────────────────────────────────────────── */
 
-/* ─── TOC ────────────────────────────────────────────────────────────────────── */
-
-.table-of-contents__link {
-  font-size: 0.8rem;
-  color: var(--lavin-muted);
-  transition: color 0.15s ease;
-}
-
+.table-of-contents__link { font-size: 0.8rem; color: var(--li-muted); transition: color 0.15s ease; }
 .table-of-contents__link:hover,
-.table-of-contents__link--active {
-  color: var(--lavin-accent);
-}
+.table-of-contents__link--active { color: var(--li-accent); }
 
-/* ─── Footer — navy background ───────────────────────────────────────────────── */
+/* ─── Footer — exact from website Footer.tsx ────────────────────────────── */
+/* Website: border-t border-border/50 bg-gradient-to-b from-surface/80 to-background */
 
 .footer {
+  /* website uses navy/primary for footer; book uses same */
   background: #0b1d3a;
   color: #f1f5f9;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -536,16 +545,18 @@ code {
   border-top-color: rgba(255, 255, 255, 0.04);
 }
 
+/* Footer column headings — uppercase tracking, Plus Jakarta Sans */
 .footer__title {
   font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
   font-weight: 700;
-  font-size: 0.775rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.1em;
   color: #ffffff;
   margin-bottom: 1rem;
 }
 
+/* Footer links — muted → accent on hover */
 .footer__link-item {
   color: #94a3b8;
   font-size: 0.875rem;
@@ -553,7 +564,7 @@ code {
 }
 
 .footer__link-item:hover {
-  color: var(--lavin-accent-light);
+  color: var(--li-accent-light);  /* #34d399 — exact from website */
 }
 
 .footer__copyright {
@@ -564,74 +575,80 @@ code {
   margin-top: 3rem;
 }
 
-/* ─── Mermaid ────────────────────────────────────────────────────────────────── */
+/* ─── Mermaid ─────────────────────────────────────────────────────────────── */
 
 .mermaid {
   text-align: center;
   margin: 2rem 0;
   padding: 1.5rem;
-  background: var(--lavin-surface);
-  border: 1px solid var(--lavin-border);
+  background: var(--li-surface);
+  border: 1px solid var(--li-border);
   border-radius: 1rem;
 }
 
-/* ─── Lavin-specific components ──────────────────────────────────────────────── */
+/* ─── ADR badges ─────────────────────────────────────────────────────────── */
+/* Use premium badge style from globals.css (.badge-premium) */
 
-/* ADR status badges — green = accepted, amber = proposed, grey = deprecated */
 .badge-accepted {
   display: inline-flex;
   align-items: center;
-  background: linear-gradient(135deg, #00a86b, #00c896);
-  color: white;
-  border-radius: 999px;
-  padding: 2px 10px;
-  font-size: 0.72rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 168, 107, 0.2);
+  background: rgba(0, 168, 107, 0.05);
+  padding: 0.2rem 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
   text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--li-accent);
   vertical-align: middle;
 }
 
 .badge-proposed {
   display: inline-flex;
   align-items: center;
-  background: linear-gradient(135deg, #d97706, #f59e0b);
-  color: white;
-  border-radius: 999px;
-  padding: 2px 10px;
-  font-size: 0.72rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(217, 119, 6, 0.2);
+  background: rgba(217, 119, 6, 0.05);
+  padding: 0.2rem 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
   text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #d97706;
   vertical-align: middle;
 }
 
 .badge-deprecated {
   display: inline-flex;
   align-items: center;
-  background: #475569;
-  color: white;
-  border-radius: 999px;
-  padding: 2px 10px;
-  font-size: 0.72rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(71, 85, 105, 0.3);
+  background: rgba(71, 85, 105, 0.06);
+  padding: 0.2rem 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
   text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #64748b;
   vertical-align: middle;
 }
 
-/* Section meta label — small accent label above headings */
+/* ─── Section meta label — accent green, small uppercase ─────────────────── */
+
 .section-meta {
   font-size: 0.72rem;
   font-weight: 700;
-  color: var(--lavin-accent);
+  color: var(--li-accent);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.15em;
   margin-bottom: 0.375rem;
   display: block;
 }
 
-/* Principle cards */
+/* ─── Principle cards ─────────────────────────────────────────────────────── */
+/* From website's premium-card pattern in globals.css */
+
 .principle-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -640,78 +657,62 @@ code {
 }
 
 .principle-card {
-  border: 1px solid var(--lavin-border);
-  border-radius: 1rem;
-  padding: 1.5rem;
-  background: #ffffff;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
   position: relative;
   overflow: hidden;
+  border-radius: 1.25rem;   /* premium-card: rounded-[1.25rem] */
+  background: var(--li-glass);
+  border: 1px solid var(--li-glass-border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 1.5rem;
+  /* premium-card transition */
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.3s ease;
 }
 
-[data-theme="dark"] .principle-card {
-  background: var(--lavin-surface);
-  border-color: var(--lavin-border);
-}
-
+/* premium-card::before — accent top line */
 .principle-card::before {
   content: "";
   position: absolute;
+  inset: 0;
   top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--lavin-accent), var(--lavin-accent-light));
-  opacity: 0;
-  transition: opacity 0.25s ease;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--li-accent), transparent);
+  opacity: 0.6;
 }
 
+/* premium-card:hover */
 .principle-card:hover {
-  border-color: rgba(0, 168, 107, 0.35);
-  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 168, 107, 0.25);
   transform: translateY(-2px);
 }
 
-.principle-card:hover::before {
-  opacity: 1;
-}
-
 [data-theme="dark"] .principle-card:hover {
-  border-color: rgba(52, 211, 153, 0.3);
+  border-color: rgba(52, 211, 153, 0.25);
 }
 
 .principle-card h3 {
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--lavin-fg);
+  color: var(--li-foreground);
   margin: 0 0 0.5rem;
   font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
 }
 
-[data-theme="dark"] .principle-card h3 {
-  color: #f1f5f9;
-}
-
 .principle-card p {
   font-size: 0.875rem;
-  color: var(--lavin-muted);
+  color: var(--li-muted);
   margin: 0;
   line-height: 1.6;
 }
 
-/* ─── Scrollbar ──────────────────────────────────────────────────────────────── */
+/* ─── Scrollbar ───────────────────────────────────────────────────────────── */
 
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--lavin-border); border-radius: 999px; }
+::-webkit-scrollbar-thumb { background: var(--li-border); border-radius: 9999px; }
 ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 
-/* ─── Selection ──────────────────────────────────────────────────────────────── */
-
-::selection { background: rgba(0, 168, 107, 0.15); }
-[data-theme="dark"] ::selection { background: rgba(52, 211, 153, 0.15); }
-
-/* ─── Reduced motion ─────────────────────────────────────────────────────────── */
+/* ─── Reduced motion ──────────────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

@@ -1,8 +1,8 @@
 {
-  "name": "laviniot-architecture",
-  "version": "1.0.0",
+  "name": "lavin-book",
+  "version": "2.0.0",
   "private": true,
-  "description": "LavinIoT Platform Architecture Portal",
+  "description": "Lavin Book — The engineering handbook of LavinIoT.",
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",

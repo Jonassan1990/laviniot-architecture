@@ -1,125 +1,186 @@
-.heroBanner {
-  padding: 5rem 0;
+.hero {
+  padding: 4.5rem 0 3.5rem;
   text-align: center;
   position: relative;
-  overflow: hidden;
+}
+
+.heroBadge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  padding: 4px 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.25rem;
 }
 
 .heroTitle {
-  font-size: 2.8rem;
+  font-size: 3.25rem;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
 }
 
-.heroSubtitle {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.85);
-  max-width: 640px;
-  margin: 0 auto 2rem;
-  line-height: 1.7;
+.heroTagline {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+}
+
+.heroBanner {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  padding: 0.6rem 1.25rem;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
 }
 
 .heroButtons {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.75rem;
   flex-wrap: wrap;
 }
 
-.heroButton {
-  font-size: 1rem;
+.heroBtn {
   font-weight: 600;
+  font-size: 0.95rem;
 }
 
-/* Pillars */
+/* Sections grid */
 
-.pillarsSection {
+.sections {
   padding: 4rem 0;
 }
 
-.pillarsHeading {
+.sectionsHeader {
   text-align: center;
-  max-width: 640px;
+  max-width: 600px;
   margin: 0 auto 3rem;
 }
 
-.pillarsHeading p {
+.sectionsHeader p {
   color: var(--ifm-color-emphasis-700);
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.7;
-}
-
-.pillarsRow {
-  row-gap: 1.5rem;
-}
-
-.pillar {
-  padding: 0.5rem;
-}
-
-.pillarCard {
-  display: flex;
-  flex-direction: column;
-  padding: 1.75rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 8px;
-  text-decoration: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-  height: 100%;
-}
-
-.pillarCard:hover {
-  border-color: var(--ifm-color-primary);
-  box-shadow: 0 4px 16px rgba(11, 110, 79, 0.12);
-  transform: translateY(-2px);
-  text-decoration: none;
-}
-
-.pillarIcon {
-  font-size: 2rem;
-  margin-bottom: 0.75rem;
-}
-
-.pillarTitle {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: var(--ifm-color-primary);
-}
-
-.pillarDescription {
-  font-size: 0.9rem;
-  color: var(--ifm-color-emphasis-700);
-  line-height: 1.6;
   margin: 0;
 }
 
-/* Principles */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
 
-.principlesSection {
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  text-decoration: none;
+  background: var(--ifm-background-surface-color);
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+
+.card:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 4px 16px rgba(11, 110, 79, 0.1);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.cardNumber {
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  background: var(--ifm-color-primary);
+  color: white;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+.cardBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.cardTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ifm-heading-color);
+  margin: 0 0 0.35rem;
+}
+
+.cardDescription {
+  font-size: 0.825rem;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Rules section */
+
+.rulesSection {
   background: var(--ifm-color-emphasis-100);
   padding: 4rem 0;
 }
 
-[data-theme="dark"] .principlesSection {
+[data-theme="dark"] .rulesSection {
   background: var(--ifm-background-surface-color);
 }
 
-.principlesList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.rulesInner {
+  max-width: 680px;
+  margin: 0 auto;
 }
 
-.principlesList li {
-  padding: 0.75rem 0;
+.rulesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.rule {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 0;
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
-  font-size: 0.95rem;
+  font-size: 0.925rem;
   line-height: 1.65;
+  color: var(--ifm-color-emphasis-800);
 }
 
-.principlesList li:last-child {
+.rule:last-child {
   border-bottom: none;
+}
+
+.ruleNumber {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding-top: 3px;
+  min-width: 24px;
 }

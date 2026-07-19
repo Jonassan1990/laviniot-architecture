@@ -3,8 +3,8 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
-  title: "LavinIoT Architecture",
-  tagline: "Single source of truth for platform design, decisions, and governance",
+  title: "Lavin Book",
+  tagline: "The engineering handbook of LavinIoT.",
   favicon: "img/favicon.ico",
 
   url: "https://architecture.lavin-iot.com",
@@ -34,7 +34,8 @@ const config: Config = {
         docs: {
           sidebarPath: "./sidebars.ts",
           routeBasePath: "/",
-          editUrl: "https://github.com/Jonassan1990/laviniot-architecture/edit/main/",
+          editUrl:
+            "https://github.com/Jonassan1990/laviniot-architecture/edit/main/",
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
         },
@@ -50,7 +51,7 @@ const config: Config = {
     image: "img/laviniot-social.png",
 
     navbar: {
-      title: "LavinIoT Architecture",
+      title: "Lavin Book",
       logo: {
         alt: "LavinIoT",
         src: "img/logo.svg",
@@ -59,9 +60,19 @@ const config: Config = {
       items: [
         {
           type: "docSidebar",
-          sidebarId: "architectureSidebar",
+          sidebarId: "bookSidebar",
           position: "left",
-          label: "Documentation",
+          label: "Handbook",
+        },
+        {
+          to: "/engineering-principles",
+          label: "Principles",
+          position: "left",
+        },
+        {
+          to: "/08-adr",
+          label: "ADR",
+          position: "left",
         },
         {
           href: "https://www.lavin-iot.com",
@@ -80,37 +91,44 @@ const config: Config = {
       style: "dark",
       links: [
         {
-          title: "Architecture",
+          title: "Platform",
           items: [
-            { label: "Vision", to: "/vision" },
-            { label: "Core", to: "/architecture/core" },
-            { label: "ADR", to: "/adr" },
+            { label: "00 Vision", to: "/00-vision" },
+            { label: "01 Product", to: "/01-product" },
+            { label: "02 Core Architecture", to: "/02-core-architecture" },
           ],
         },
         {
-          title: "Platform",
+          title: "Engineering",
           items: [
-            { label: "API Reference", to: "/api/overview" },
-            { label: "Deployment", to: "/deployment/overview" },
-            { label: "Security", to: "/architecture/security" },
+            { label: "Engineering Principles", to: "/engineering-principles" },
+            { label: "08 ADR", to: "/08-adr" },
+            { label: "06 APIs & SDKs", to: "/06-apis-sdks" },
           ],
         },
         {
           title: "Governance",
           items: [
-            { label: "Decision Log", to: "/decision-log" },
-            { label: "Sprint Notes", to: "/sprint-notes" },
-            { label: "Roadmap", to: "/roadmap" },
+            { label: "09 Sprint Journal", to: "/09-sprint-journal" },
+            { label: "10 Release Notes", to: "/10-release-notes" },
+            { label: "07 Deployment", to: "/07-deployment" },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} LavinIoT. Architecture documentation — internal governance.`,
+      copyright: `Copyright © ${new Date().getFullYear()} LavinIoT. Lavin Book — internal engineering handbook.`,
     },
 
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ["python", "bash", "yaml", "json", "typescript", "sql"],
+      additionalLanguages: [
+        "python",
+        "bash",
+        "yaml",
+        "json",
+        "typescript",
+        "sql",
+      ],
     },
 
     mermaid: {
@@ -135,12 +153,12 @@ const config: Config = {
     },
 
     announcementBar: {
-      id: "internal",
+      id: "lavin-book-v1",
       content:
-        "🏗️ This is an internal architecture portal — not customer-facing documentation.",
+        "📘 <strong>Lavin Book</strong> — This is the official engineering handbook of LavinIoT. Not for external distribution.",
       backgroundColor: "#0B6E4F",
       textColor: "#ffffff",
-      isCloseable: true,
+      isCloseable: false,
     },
   } satisfies Preset.ThemeConfig,
 };

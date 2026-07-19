@@ -1,4 +1,4 @@
-/* LavinIoT Architecture Portal — Custom Styles */
+/* Lavin Book — Custom Styles */
 
 :root {
   --ifm-color-primary: #0B6E4F;
@@ -13,6 +13,8 @@
   --ifm-heading-font-family: "Inter", system-ui, -apple-system, sans-serif;
   --ifm-font-weight-bold: 600;
   --docusaurus-highlighted-code-line-bg: rgba(11, 110, 79, 0.1);
+  --book-badge-bg: #0B6E4F;
+  --book-badge-text: #ffffff;
 }
 
 [data-theme="dark"] {
@@ -26,72 +28,112 @@
   --docusaurus-highlighted-code-line-bg: rgba(26, 155, 108, 0.15);
 }
 
-/* Announcement bar */
-.announcement-bar {
-  font-weight: 500;
+/* Hero */
+.hero--primary {
+  background: linear-gradient(135deg, #0B6E4F 0%, #063d2b 100%);
+}
+
+/* Section number badges in sidebar */
+.menu__link {
   font-size: 0.875rem;
 }
 
-/* Hero */
-.hero--primary {
-  background: linear-gradient(135deg, #0B6E4F 0%, #074a34 100%);
-}
-
-/* ADR badges */
-.badge--status-accepted {
-  background-color: #0B6E4F;
-  color: white;
-  border-radius: 4px;
-  padding: 2px 8px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-.badge--status-proposed {
-  background-color: #D4A017;
-  color: #1a1a1a;
-  border-radius: 4px;
-  padding: 2px 8px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-.badge--status-deprecated {
-  background-color: #6b7280;
-  color: white;
-  border-radius: 4px;
-  padding: 2px 8px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-/* Mermaid diagram wrapper */
+/* Mermaid diagrams */
 .mermaid {
   text-align: center;
   margin: 2rem 0;
 }
 
-/* Admonition customization */
-.alert--info {
-  border-left-color: #0B6E4F;
+/* Principle cards */
+.principle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin: 2rem 0;
 }
 
-/* Sidebar improvements */
-.menu__link--active {
+.principle-card {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  background: var(--ifm-background-surface-color);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.principle-card:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 2px 12px rgba(11, 110, 79, 0.1);
+}
+
+.principle-card h3 {
+  font-size: 0.95rem;
   font-weight: 600;
+  color: var(--ifm-color-primary);
+  margin: 0 0 0.5rem;
 }
 
-/* Table improvements */
-table {
-  display: table;
-  width: 100%;
+.principle-card p {
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-700);
+  margin: 0;
+  line-height: 1.6;
 }
 
-th {
+/* Status table improvements */
+table th {
   background-color: var(--ifm-color-primary);
   color: white;
 }
 
-[data-theme="dark"] th {
+[data-theme="dark"] table th {
   background-color: var(--ifm-color-primary-dark);
+}
+
+/* ADR badges */
+.badge-accepted {
+  display: inline-block;
+  background: #0B6E4F;
+  color: white;
+  border-radius: 4px;
+  padding: 1px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.badge-proposed {
+  display: inline-block;
+  background: #D97706;
+  color: white;
+  border-radius: 4px;
+  padding: 1px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.badge-deprecated {
+  display: inline-block;
+  background: #6b7280;
+  color: white;
+  border-radius: 4px;
+  padding: 1px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+/* Section index pages */
+.section-meta {
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-600);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
+}
+
+/* Announcement bar override — always visible */
+div[class*="announcementBar"] {
+  font-weight: 500;
 }

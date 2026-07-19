@@ -1,23 +1,25 @@
-# LavinIoT Architecture Portal
+# Lavin Book
 
-> Single source of truth for the LavinIoT platform — design, decisions, and governance.
+> The engineering handbook of LavinIoT.
 
-This repository contains the Docusaurus documentation portal for the LavinIoT platform. It is **not source code**. It governs how the platform is designed, why decisions were made, and how every component relates to every other.
+Lavin Book is the single source of truth for the company — engineering handbook, product handbook, architecture handbook, design handbook, and decision log in one place.
 
-## Contents
+## Sections
 
-| Section | Description |
-|---|---|
-| **Vision** | Long-term platform direction and constraints |
-| **Product Philosophy** | Governing trade-off principles |
-| **Architecture** | Core, Modules, Providers, Data Model, Security |
-| **API** | REST and MQTT contracts |
-| **UI / UX** | Design system and dashboard specifications |
-| **Deployment** | Cloud, Edge, Hybrid topology and CI/CD |
-| **Roadmap** | Phased delivery milestones |
-| **ADR** | Architecture Decision Records |
-| **Sprint Notes** | Engineering records per sprint |
-| **Decision Log** | Informal but traceable decisions |
+| # | Section | Description |
+|---|---|---|
+| — | Engineering Principles | The 9 non-negotiable engineering values |
+| 00 | Vision | Platform direction and strategic constraints |
+| 01 | Product | Philosophy, personas, roadmap |
+| 02 | Core Architecture | Topology, Core, Providers, Security, Invariants |
+| 03 | Module Catalog | Every discrete capability unit |
+| 04 | Data Model | Entities, schema, multi-tenancy, retention |
+| 05 | UX & Design System | Design principles, tokens, components, screens |
+| 06 | APIs & SDKs | REST, MQTT, auth, webhooks, SDK roadmap |
+| 07 | Deployment | Cloud, Edge, Hybrid, CI/CD, runbooks |
+| 08 | ADR | Architecture Decision Records |
+| 09 | Sprint Journal | Engineering records per sprint |
+| 10 | Release Notes | What shipped, what changed |
 
 ## Running locally
 
@@ -28,19 +30,14 @@ npm start
 
 Opens at `http://localhost:3000`.
 
-## Contributing
+## Governance
 
-1. All significant architectural decisions require an ADR.
-2. All informal decisions must be added to the Decision Log.
-3. Documentation is maintained with the same discipline as production code.
-4. Outdated documentation is treated as a defect.
-
-## Governance rules
-
-- No code is written before its architectural boundary is documented here.
-- ADRs are immutable after acceptance. Reversals require a new ADR.
-- The Decision Log is append-only.
+1. Architecture before implementation
+2. Interface before implementation
+3. Documentation before code
+4. ADRs are immutable after acceptance
+5. This book is maintained with the same discipline as production code
 
 ---
 
-*LavinIoT Architecture Portal — internal governance, not customer-facing.*
+*Lavin Book — internal engineering handbook. Not for external distribution.*
